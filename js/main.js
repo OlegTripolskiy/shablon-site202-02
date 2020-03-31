@@ -121,20 +121,20 @@
       if(width_spans > width_main){
         $('#m-menu > span.pipe').removeClass("pipe2"); // border-right: 2px solid white
         $('#m-menu > span.pipe').addClass("pipe0"); // border-right: 0px solid white
-        alert("БОЛЬШЕ");
+//        alert("БОЛЬШЕ");
       }
       else {
         $('#m-menu > span.pipe').removeClass("pipe0");
         $('#m-menu > span.pipe').addClass("pipe2");
 //        $('#m-menu > span.pipe').css("borderRightWidth", "2px");
-        alert("ELSE-" + $('#m-menu > span.pipe').css("borderRightWidth"));
+//        alert("ELSE-" + $('#m-menu > span.pipe').css("borderRightWidth"));
       }
     }; // Конец set_pipe_width
     
     set_pipe_width(); // При загрузке страницы
     $(window).resize(function(){
                      set_pipe_width();
-                     alert("resize");
+//                     alert("resize");
     }); // При измении ориентации мобильного устройства
     
     // --- Конец управления шириной разделителей гл. меню.
