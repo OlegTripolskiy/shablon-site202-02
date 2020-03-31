@@ -121,6 +121,7 @@
       if(width_spans > width_main){
         $('#m-menu > span.pipe').removeClass("pipe2"); // border-right: 2px solid white
         $('#m-menu > span.pipe').addClass("pipe0"); // border-right: 0px solid white
+        alert("БОЛЬШЕ");
       }
       else {
         $('#m-menu > span.pipe').removeClass("pipe0");
@@ -131,7 +132,10 @@
     }; // Конец set_pipe_width
     
     set_pipe_width(); // При загрузке страницы
-    $(window).resize(set_pipe_width()); // При измении ориентации мобильного устройства
+    $(window).resize(function(){
+                     set_pipe_width();
+                     alert("resize");
+    }); // При измении ориентации мобильного устройства
     
     // --- Конец управления шириной разделителей гл. меню.
     
