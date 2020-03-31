@@ -1,0 +1,282 @@
+  /* 0. ====== Базовые стили для ВСЕГО сайта ======== */
+    html {
+      box-sizing: border-box; /* ширина и высота = content+border+padding. */
+      font-family: Arial,"Helvetica CY", "Nimbus Sans L",  sans-serif;
+      font-size: 0.85em; /* От размера в браузере */
+      line-height: 1.4; /* Межстрочный интервал */
+      
+    }
+    /* Источник:  https://ymatuhin.ru/front-end/better_box_sizing */
+    /* Теперь ВСЕ БУДУТ наследовать  box-sizing от родителя - от тэга html */
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    /* 1. ========== каркас сайта =================================== */
+    body {margin: 0;}/* Прижать к верху страницы обязательно 0, auto - в .cont-site, */
+    /* Стили контейнера сайта */
+    .cont-site {
+      margin: 0 auto;
+      max-width: 35cm; /* Максимальная ширина ВСЕГО сайта */
+      justify-content: space-between; /* Флексы равномерно распределяются по всей строке. Первый и последний элемент прижимаются к соответствующим краям контейнера. */
+    }
+    /* Стили Логотип */
+    header {
+      padding: 1%;
+      min-height: 40px;
+      /*background-color: aquamarine;  будет цвет фона */
+      text-align: center;
+      display: flex;
+    }
+    header h1 {
+      font-size: 20px;
+      margin: 0 auto;
+    }
+
+    /* 2. === СЕРЕДИНА САЙТА: sidebar(aside), article, ad - реклама ================ */
+    /*   2.1. ---- ГЛАВНЫЕ КОНТЕЙНЕРЫ СЕРЕДИНЫ САЙТА --------------------------  */
+    /* Контейнер для середины сайта */
+    .main {
+      margin: 0px auto;
+      display: flex;
+/*      border: 1px solid green;*/
+    }
+    /* БОКОВАЯ ПАНЕЛЬ навигации */
+    aside {
+      padding: 1%;
+      /*background-color: #a2a2a2;  будет цвет фона */ 
+      /*!!! НЕ ТРОГАТЬ !!! ширина САЙДБАРА - написал в 2016, сейчас не помню почему */
+      width: 180px;
+      min-width: 13%;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    /* ОСНОВНАЯ СТАТЬЯ сайта */
+    article {
+      padding: 1%;
+      width: 61%;
+    }
+     /* КОЛОНКА ДЛЯ РЕКЛАМЫ */
+    .ad {
+      padding: 1%;
+      /*background-color: #e2e2e2;   будет цвет фона */
+      width: 26%; /* ширина ОСНОВНОЙ ЧАСТИ */
+    }
+    /* ПОДВАЛ */
+    footer {
+      text-align: center;
+      
+    }
+
+    /*  2.2. ----- ОГЛАВЛЕНИЕ СТРАНИЦЫ ----------------------------- */
+    div.toc {
+      cursor: pointer;
+      float: right; /*сдвигаем вправо + вынимаем из потока */
+      position: sticky; /* Оглавление страницы станет прилипющим к верху*/
+      top: 25px; /* Относится к position: sticky - Верхний край ниже родительского блока */
+      width: 50px; /* Ширина свернутого Оглавления */
+      margin: 2px 2px; /*поля */
+      border: 1px solid #bbb; /* рамка блока */
+      background-color: rgba(43, 60, 109, 0.7);  /* Цвет ФОНА свернутого меню */
+      box-shadow: inset 0 0 10px #BABABA;  /* ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини*/
+      border-radius: 5px;  /* радиус углов */
+    }
+    /* Стиль ЗАГОЛОВКА Оглавления страницы */
+    div.toc h4.work {
+      color: blue;
+      box-sizing: content-box;
+      margin: 1px auto;
+      display: flex;
+      cursor: pointer;
+      justify-content:flex-end;
+    }
+    /* Стиль CSS-треугольника */
+    .trCSS {
+      margin: 5px;
+      margin-left: 20px; /* Отодвигаю левый соседний блок  */
+      border-top: 10px solid blue;
+      border-left: 10px solid transparent;
+    }
+    /* Стили СПИСКА в Оиглвлении страницы */
+    div.toc ol {
+      display: none;
+      margin: 1px;
+      margin-left: 20px;
+      padding: 1px;
+    }
+    /* Стили пункта списка в Оиглвлении страницы */
+    div.toc li {
+      text-align: left;
+      margin: 1px;
+      padding: 1px;
+      padding-left: 1px;
+    }
+    /* ВЫДЕЛЕНИЕ выбранного пункта Оглавления страницы - в 2020 НЕ ПРИМЕНЯЮ */
+    .selected {
+      border: 1px solid #bbb;  /*  рамка блока */
+      background-color: rgba(246, 246, 246, 1.0); /*Цвет ФОНА свернутого меню */
+      box-shadow: inset 0 0 10px #BABABA; /*ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини */
+      border-radius: 5px;  /*радиус углов  */
+    }
+    /* Стили ССЫЛОК в Оглавления страницы */
+    .toc ol li a {
+      text-decoration: none;
+      color: #585877;  /* делаю цвет ссылки обычным для сайта */
+      display: block;
+    }
+    .toc ol li a:visited {
+      text-decoration: none; /* убираю подчеркивание ПОСЕЩЕННЫХ ССЫЛОК */
+    }
+
+    /*  2.3. -----  ПАРАГРАФЫ СТАТЬИ ------------------------------ */
+    /* ЗАГОЛОВОК ПАРАГРАФА СТАТЬИ */
+    .toc_h {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 5px;
+      margin-bottom: 3px;
+      background-color: #759498; /* был #7D7D7D*/
+      color: #E7E7E7; /* Раньше был белый, но сильно контрастно */
+    }
+    /* выбранный ЗАГОЛОВОК ПАРАГРАФА СТАТЬИ */
+    .toc_h:target {
+      background-color: #2B3C6D; /* выделяю только фоном */
+      color: #D0D0D0;
+      /* оформление выбранного параграфа БЫЛО РАНЬШЕ до 2020 */
+/*      border: 1px solid #bbb;    рамка блока */
+/*      background-color: rgba(246, 246, 246, 1);  Цвет ФОНА свернутого меню */
+/*      box-shadow: inset 0 0 10px #BABABA;  ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини */
+/*      border-radius: 5px;   радиус углов */
+    }
+    /* ПАРАГРАФ СТАТЬИ */
+    .toc_p {
+      text-align: justify;
+      text-indent: 3%;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      /*position: relative;  Тогда смогу использовать jquery posdition для ::after */
+    }
+
+    /* 3. ===== МЕДИА ПРАВИЛА ДЛЯ РАЗНЫХ РАЗМЕРОВ ЭКРАНОВ =================	*/
+    /*  3.1. ---- ШИРИНА ЭКРАНА < 30cm --- */
+    @media only screen and (max-width: 30cm) {
+      .ad {display: none;} /* удаляем рекламную колонку */
+      aside {width: 20%;}
+      article {width: 80%;}
+    }
+    /*  3.2. ---- ШИРИНА ЭКРАНА < 25cm --- */
+    @media only screen and (max-width: 25cm) {
+    }
+    /*  3.3. ---- ШИРИНА ЭКРАНА < 20cm --- */
+    @media only screen and (max-width: 20cm) {
+      /*  оставляем только 1-у колонку и делаем ее ширину 100% */
+      .ad {display: none;}
+      aside {
+        width: 0; /* Делаю 0, чтобы надежно высчитывать позицию англ. слова */
+        display: none;
+      }
+      article {width: 100%;}
+
+      header div label:nth-child(n+2) {display: none;} /* убираю панель управленя САЙДБАРА */
+      .toc ol li  {margin-bottom: 3px;}  /* Увеличиваем высоту ссылок в ОГЛАВЛЕНИИ */
+      .toc ol li a {font-size: 100%;}
+    }
+
+    /* 4. === МОДУЛЬ АНГЛИЙСКИХ СЛОВ - ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ ===*/
+    /* источник http://makoveckij.ru/vsplyivayushhie-podskazki-na-css/#.V2BdSNKLS01 */
+    /*  4.1.----  ЗАГРУЖАЕМЫЙ для ТРАНСКРИПЦИИ ШРИФТ -------- */
+    @font-face {
+      /* font-family: font-tr ; Имя шрифта phontm.ttf */
+      /*src: url(../fonts/phontm.ttf);  Путь к файлу со шрифтом */
+      /*src: url(../fonts/UbuntuMono-R-my-change-3.ttf);   Путь к файлу со шрифтом */
+    }
+    .tr{
+      position: relative; /* позиционирую РОДИТЕЛЯ для ::after ::befor (они будут потомками) */
+      color: blue; /* временно, чтобы эти слова были видны в тексте */
+    }
+
+    /*  4.2 --- ВСПЛЫВАЮЩАЯ ПОДСКАЗКА для ТРАНСКРИПЦИИ и ПЕРЕВОДА ------------------ */
+    .tr:hover::after {  /* Псевдоэлемент появляется ТОЛЬКО при наведении курсора (или клике для тач устройств) */
+      content: attr(data-tr); /* подставляю в content содержимое атрибута */
+      font-family: font-tr; /*подключаю свой шрифт, в котором есть знаки транскрипции */
+      /* Позиционирование псевдоэлемента относительно родителя */
+      position: absolute;
+      left: 0; /* слева 0 от родителя */
+      bottom: 20px; /* 20px выше слова */
+      width: 200px; /* Ширина всплывающего блока */
+      /* Цветовое оформление всплывающей подсказки	*/
+      background-color: #1e2227;/* фоновый цвет */
+      background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0)); /* градиент */
+      text-shadow: 0 1px 0 #000;
+      color: #fff;/* цвет шрифта */
+      border: 2px solid #ccc;/* я оставил старый - не так черно */
+      opacity: .9;/* прозрачность */
+      padding: 5px;/* отступы */
+      border-radius: 5px;
+    }
+    .tr-left:hover::after {left: -150px;} /* Если у правого края */
+
+    /* Добавляем стрелочку внизу блока всплывающей подсказки */
+    .tr:hover::before{ /* Псевдоэл. появляется ТОЛЬКО при наведении курсора (или клике для тач устройств) */
+      border: solid;
+      /* border-color: #ccc transparent; просто Вариант - серая стрелка*/
+      border-color: #373B3F transparent; /* темно-синяя стрелка */
+      border-width: 6px 6px 0 6px;/* делаем из рамки стрелку вниз */
+      content: "";/* без контента */
+      position: absolute;
+      bottom: 15px; /* Позиционирование стрелки снизу */
+      left: 30%; /* Позиционирование стрелки слева */
+    }
+    /* управляем ОКЛЮЧЕНИЕМ ПОКАЗА перевода */
+    .no-tr {color: #585877;} /* Делаем цвет текста обычным */
+    .no-tr:hover:after {visibility: hidden;}
+    .no-tr:hover:before {visibility: hidden;}
+    .no-tr:hover {cursor: auto;}
+    /* --- КОНЕЦ всплывающей подсказки ТРАНСКРИПЦИИ И ПЕРЕВОДА  ------------------ */
+ 
+/* ------ ГЛАВНОЕ МЕНЮ ----------------  */
+#m-menu {
+  text-align: center;  /* Текст в элементах (и вложенных) по центру  */
+  display: flex;
+  flex-wrap: wrap; /* В случае маленьких экранов пункты меню будут переноситься  */
+  background-color: #295151; /* Цвет фона главного меню  */
+  color: #F2F4D2;  /*  Цвет шрифта (наследуется)  */
+/*  Обрамление гл. меню  */
+  border-bottom: 2px solid white;  
+  border-top: 2px solid white;
+}
+/*  Пункт меню   */
+#m-menu span.item {
+  -webkit-flex: 1 1 auto; /* webkit браузеры */
+  -ms-flex:  1 1 auto; /* IE  */
+  flex: 1 1 auto; /* flex-grow=1,  flex-shrink=1, flex-basis= auto */
+}
+/*  Тон пункта меню  при НАВЕДЕНИИ курсора  */
+#m-menu span:hover { 
+  background-color: #874444;
+  cursor: pointer;    Пока имитирую ссылку  
+}
+/*  Разделитель пунктов меню   */
+#m-menu span.pipe { }
+/* БОРЮСЬ с показом разделителей при смене ориентации */
+.pipe2 {border-right: 2px solid white; }
+.pipe0 {border-right: 0px solid white; }
+
+/* Стиль кликнутого элемента */
+.clicked {
+  background-color: #874444;
+/*  cursor: default;   курсор не меняетя */
+}
+/*.clicked:hover {cursor: default; }  не меняет курсор */
+/* Конец главного меню */
+
+
+    /* !!!! === ЦВЕТОВАЯ  СХЕМА  САЙТА ================== !!!!!*/
+    html {color: #808080; /* Цвет ТЕКСТА приятный для глаз, old - #585877 */}
+    .cont-site {background-color: #D0D0D0;} /* Фоновый цвет сайта*/
+    article {background-color: #E7E7E7;}  /* Цвет средней полосы */
+    footer { 
+      background-color: #5E5E5E; /* Цвет фона футера */
+      color: #F5F5D5; /* Цвет текста футера */
+    }  
+    
