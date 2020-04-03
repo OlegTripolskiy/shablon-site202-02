@@ -116,22 +116,22 @@ $(document).ready(function() {
       });
       
       // Сравниваем сумму с шириной гл.меню и показыаем или нет разделитель
-      // К ширине меню доавляю 1, чтобы четко сравнивалось с суммой чисел (float)
+      // К ширине меню доавляю 1, чтобы ЧЕТКО сравнивалось с суммой чисел (float)
       if(width_spans > width_mmenu + 1){  
          $('#m-menu > span.pipe').removeClass("pipe2"); // border-right-width: 2px;
          $('#m-menu > span.pipe').addClass("pipe0");    // border-right-width: 0px;
-         alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", больше");
+//         alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", больше");
       }
       else {
          $('#m-menu > span.pipe').removeClass("pipe0");
          $('#m-menu > span.pipe').addClass("pipe2");
-         alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", меньше");
+//         alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", меньше");
       }
    }; // Конец set_pipe_width()
     
   set_pipe_width(); // Запускаем функцию при загрузке страницы
   $(window).resize(function(){  // Запускаем функцию при измении ориентации.
-    alert("resize");
+//    alert("resize");
     set_pipe_width(); 
   }); 
   // --- Конец управления шириной разделителей гл. меню.
