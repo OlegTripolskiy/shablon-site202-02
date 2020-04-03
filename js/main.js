@@ -107,7 +107,7 @@ $(document).ready(function() {
    // ===== управление ГЛАВНЫМ МЕНЮ (ширина разделителя) ===============
    // Функция устанавливающая ширину разделителей (pipe) гл. меню.
    function set_pipe_width(){
-      var width_main = $("#m-menu").width(); // Получаем ширину главного меню
+      var width_mmenu = $("#m-menu").width(); // Получаем ширину главного меню
       var width_spans = 0; // Инициализируем счетчик суммы длин пунктов меню.
       
       // Получаем набор ВСЕХ элементов меню и суммируем их ширину.
@@ -116,15 +116,16 @@ $(document).ready(function() {
       });
       
       // Сравниваем сумму с шириной гл.меню и показыаем или нет разделитель
-      if(width_spans > width_main + 1){
+      // К ширине меню доавляю 1, чтобы четко сравнивалось с суммой чисел (float)
+      if(width_spans > width_mmenu + 1){  
          $('#m-menu > span.pipe').removeClass("pipe2"); // border-right-width: 2px;
          $('#m-menu > span.pipe').addClass("pipe0");    // border-right-width: 0px;
-         alert("сумма=" + width_spans + ", ширина="+width_main + ", больше");
+         alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", больше");
       }
       else {
          $('#m-menu > span.pipe').removeClass("pipe0");
          $('#m-menu > span.pipe').addClass("pipe2");
-         alert("сумма=" + width_spans + ", ширина="+width_main + ", меньше");
+         alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", меньше");
       }
    }; // Конец set_pipe_width()
     
