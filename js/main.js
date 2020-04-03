@@ -1,4 +1,4 @@
-  $(document).ready(function() {
+$(document).ready(function() {
 
       // Удаляю текст заголовка ОГЛАВЛЕНИЯ СТРАНИЦЫ.
       $('div.toc h4.work span:first-child').text(" ");
@@ -104,40 +104,31 @@
       });
       // ----- конец всплывающих подсказок	-----------------------------------------
 
-  // ===== управление ГЛАВНЫМ МЕНЮ ===============
-    // ----- Управление переносом элементов главного меню ------
-    
-    // Функция устанавливающая ширину разделителей (pipe) гл. меню.
-    function set_pipe_width(){
+   // ===== управление ГЛАВНЫМ МЕНЮ (ширина разделителя) ===============
+   // Функция устанавливающая ширину разделителей (pipe) гл. меню.
+   function set_pipe_width(){
       var width_main = $("#m-menu").width(); // Получаем ширину главного меню
       var width_spans = 0; // Инициализируем счетчик суммы длин пунктов меню.
       
-      // Получаем набор ВСЕХ элементов меню и складываем их ширину.
+      // Получаем набор ВСЕХ элементов меню и суммируем их ширину.
       $('#m-menu > span').each(function(indx){
-          width_spans += +$(this).width(); // Считаем ширину всех элементов
-        });
+         width_spans += +$(this).width(); // Суммируем ширину ВСЕХ элементов гл.меню
+      });
       
       // Сравниваем сумму с шириной гл.меню и показыаем или нет разделитель
       if(width_spans > width_main){
-        $('#m-menu > span.pipe').removeClass("pipe2"); // border-right: 2px solid white
-        $('#m-menu > span.pipe').addClass("pipe0"); // border-right: 0px solid white
-//        alert("БОЛЬШЕ");
+         $('#m-menu > span.pipe').removeClass("pipe2"); // border-right-width: 2px;
+         $('#m-menu > span.pipe').addClass("pipe0");    // border-right-width: 0px;
       }
       else {
-        $('#m-menu > span.pipe').removeClass("pipe0");
-        $('#m-menu > span.pipe').addClass("pipe2");
-//        $('#m-menu > span.pipe').css("borderRightWidth", "2px");
-//        alert("ELSE-" + $('#m-menu > span.pipe').css("borderRightWidth"));
+         $('#m-menu > span.pipe').removeClass("pipe0");
+         $('#m-menu > span.pipe').addClass("pipe2");
       }
-    }; // Конец set_pipe_width
+   }; // Конец set_pipe_width()
     
-    set_pipe_width(); // При загрузке страницы
-    $(window).resize(function(){
-                     set_pipe_width();
-//                     alert("resize");
-    }); // При измении ориентации мобильного устройства
-    
-    // --- Конец управления шириной разделителей гл. меню.
+  set_pipe_width(); // Запускаем функцию при загрузке страницы
+  $(window).resize(function(){set_pipe_width(); }); // Запускаем функцию при измении ориентации.
+  // --- Конец управления шириной разделителей гл. меню.
     
   // ---- управление ЦВЕТОМ главного меню ---------
   $('#m-menu > span').click(function (indx){
@@ -145,4 +136,4 @@
     $(this).addClass("clicked");
   });  // === Конец управлением главного меню.
 
-  }); // КОНЕЦ $(document).ready(function() {})
+}); // КОНЕЦ $(document).ready(function() {})

@@ -1,0 +1,76 @@
+/* !!!! === ЦВЕТОВАЯ  СХЕМА  САЙТА - КОПИЯ РЕАЛЬНЫХ СТИЛЕЙ ==== ВЫНУШУ В ОТДЕЛЬНЫЙ ФАЙЛ И
+   там буду ПЕРЕОПРЕДЕЛЯТЬ ============== !!!!!*/
+
+/* 1. --- Оформление  ВЫБОР ЦВЕТА */
+table.color_scheme {        /* стиль таблицы */
+  margin-left: 8px;
+  border-radius: 5px;
+  border-collapse: separate;/* раздел¤ем ¤чейки*/
+  border-spacing: 2px;      /* рассто¤ние между ¤чейками*/
+/*  width: 180px;*/
+  background-color: white;
+  /*border: 1px solid #A79250; убран в файл цвета сайта*/
+  }
+table.color_scheme td {        /* стиль ¤чейки*/
+  text-align: center;
+  background-color: #F3E6BD;
+  }
+table.color_scheme td a {
+  display: block;     /* —сылка как блочный элемент */
+  text-decoration: none;
+  line-height: 10px;
+  }  
+/* --- ќсновные цвета сайта расположенные в правом меню --- */
+td#c_grey {background-color: #D0D0D0;}  /* D0D0D0*/ 
+td#c_F3E6BD {background-color: #F3E6BD;}  /* brown*/ 
+td#c_F9D0E6 {background-color: #F9D0E6;}  /* pink*/
+td#c_B5CED2 {background-color: #B5CED2;}  /* blue*/ 
+td#c_CEFBCE {background-color: #CEFBCE;}  /* green*/ 
+
+
+
+/* --- Цвета главных разделов:  ---- */
+html {color: #808080;} /* Цвет шрифта сайта */
+.cont-site {
+  background-color: #D0D0D0; /* Фоновый цвет сайта*/
+} 
+header {  /* --- Стили ВСЕГО раздела */
+  /*background-color: aquamarine; */
+}
+header h1 { /* --- Стили логотипа */
+}
+aside { /* --- БОКОВАЯ ПАНЕЛЬ навигации */
+/*  background-color: ;*/
+}
+article {/* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
+  background-color: #E7E7E7; /* Цвет средней части сайата */
+} 
+.ad { /* --- КОЛОНКА ДЛЯ РЕКЛАМЫ */
+  background-color: #e2e2e2;   /* Ton фона */
+}
+footer { /* --- ПОДВАЛ */
+  background-color: #5E5E5E; /* Цвет фона футера */
+  color: #F5F5D5; /* Цвет текста футера */
+}  
+
+/* ---------- ГЛАВНОЕ МЕНЮ -------------------- */
+#m-menu {  /* --- Контейнер главного мен
+  background-color: #295151; /* Цвет фона главного меню  */
+  color: #F2F4D2;  /*  Цвет шрифта (наследуется)  */
+  border-top: 2px solid white; /* Граница сверху */
+  border-bottom: 2px solid white;  /* Граница снизу */
+}
+#m-menu span:hover { /* --- Тон пункта меню  при НАВЕДЕНИИ курсора  */
+  background-color: #874444; /* Тон фона при наведении */
+}
+#m-menu span.pipe { /* ---  Разделитель пунктов главного меню */
+  border-right-color: white; /* Тон правой границы */
+}
+/* дополнительные классы, чтобы управлять шириной границы */
+.pipe2 {border-width: 2px; /* Ширина, если пункты вмещаются в гл. меню */ }
+.pipe0 {border-right: 0px; /* Ширина, если пункты НЕ вмещаются (при переносе на др. строку) */ }
+
+.clicked {  /* --- Стиль кликнутого элемента */
+  background-color: #874444;
+} /* --- Конец ГЛАВНОГО МЕНЮ */
+    

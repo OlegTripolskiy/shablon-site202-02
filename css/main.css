@@ -1,134 +1,139 @@
   /* 0. ====== Базовые стили для ВСЕГО сайта ======== */
-    html {
-      box-sizing: border-box; /* ширина и высота = content+border+padding. */
-      font-family: Arial,"Helvetica CY", "Nimbus Sans L",  sans-serif;
-      font-size: 0.85em; /* От размера в браузере */
-      line-height: 1.4; /* Межстрочный интервал */
-      
-    }
-    /* Источник:  https://ymatuhin.ru/front-end/better_box_sizing */
-    /* Теперь ВСЕ БУДУТ наследовать  box-sizing от родителя - от тэга html */
-    *, *:before, *:after {
-      box-sizing: inherit;
-    }
+html {
+  box-sizing: border-box; /* ширина и высота = content+border+padding. */
+  font-family: Arial,"Helvetica CY", "Nimbus Sans L",  sans-serif;
+  font-size: 0.80em; /* От размера в браузере */
+  line-height: 1.4; /* Межстрочный интервал */
+  color: #808080; /**/
+}
+/* Источник:  https://ymatuhin.ru/front-end/better_box_sizing */
+/* Теперь ВСЕ БУДУТ наследовать  box-sizing от родителя - от тэга html */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
-    /* 1. ========== каркас сайта =================================== */
-    body {margin: 0;}/* Прижать к верху страницы обязательно 0, auto - в .cont-site, */
-    /* Стили контейнера сайта */
-    .cont-site {
-      margin: 0 auto;
-      max-width: 35cm; /* Максимальная ширина ВСЕГО сайта */
-      justify-content: space-between; /* Флексы равномерно распределяются по всей строке. Первый и последний элемент прижимаются к соответствующим краям контейнера. */
-    }
-    /* Стили Логотип */
-    header {
-      padding: 1%;
-      min-height: 40px;
-      /*background-color: aquamarine;  будет цвет фона */
-      text-align: center;
-      display: flex;
-    }
-    header h1 {
-      font-size: 20px;
-      margin: 0 auto;
-    }
+ /* 1. ========== КАРКАС САЙТА =================================== */
+ body {margin: 0;}/* Прижать к верху страницы обязательно 0, auto - в .cont-site, */
+    
+ .cont-site { /* --- Стили контейнера сайта */
+   background-color: #D0D0D0; /* Фоновый цвет сайта*/
+   margin: 0 auto;
+   max-width: 35cm; /* Максимальная ширина ВСЕГО сайта */
+   justify-content: space-between; /* Флексы равномерно распределяются по всей строке. Первый и последнэлемент прижимаются к соответствующим краям контейнера. */
+ }
+    
+header {   /* --- Стили ВСЕГО раздела */
+  padding: 3px;
+/*  min-height: 40px;*/
+  /*background-color: aquamarine; */
+  text-align: center;
+  display: flex;
+}
+header h1 { /* --- Стили логотипа */
+  font-size: 20px;
+  margin: 0 auto;
+}
 
-    /* 2. === СЕРЕДИНА САЙТА: sidebar(aside), article, ad - реклама ================ */
-    /*   2.1. ---- ГЛАВНЫЕ КОНТЕЙНЕРЫ СЕРЕДИНЫ САЙТА --------------------------  */
-    /* Контейнер для середины сайта */
-    .main {
-      margin: 0px auto;
-      display: flex;
-/*      border: 1px solid green;*/
-    }
-    /* БОКОВАЯ ПАНЕЛЬ навигации */
-    aside {
-      padding: 1%;
-      /*background-color: #a2a2a2;  будет цвет фона */ 
-      /*!!! НЕ ТРОГАТЬ !!! ширина САЙДБАРА - написал в 2016, сейчас не помню почему */
-      width: 180px;
-      min-width: 13%;
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-    /* ОСНОВНАЯ СТАТЬЯ сайта */
-    article {
-      padding: 1%;
-      width: 61%;
-    }
-     /* КОЛОНКА ДЛЯ РЕКЛАМЫ */
-    .ad {
-      padding: 1%;
-      /*background-color: #e2e2e2;   будет цвет фона */
-      width: 26%; /* ширина ОСНОВНОЙ ЧАСТИ */
-    }
-    /* ПОДВАЛ */
-    footer {
-      text-align: center;
-      
-    }
+/* 2. === СЕРЕДИНА САЙТА: sidebar(aside), article, ad - реклама ================ */
+/*   2.1. ---- ГЛАВНЫЕ КОНТЕЙНЕРЫ СЕРЕДИНЫ САЙТА --------------------------  */
+/* Контейнер для середины сайта */
+.main {
+  margin: 0px auto;
+  display: flex;
+ /* border: 1px solid green;*/
+}
+    
+aside { /* --- БОКОВАЯ ПАНЕЛЬ навигации */
+  padding: 1%;
+  /*background-color: #a2a2a2;  будет цвет фона */ 
+  /*!!! НЕ ТРОГАТЬ !!! ширина САЙДБАРА - написал в 2016, сейчас не помню почему */
+  width: 180px;
+  min-width: 13%;
+  overflow: hidden;
+  transition: all 0.3s;
+/*  background-color: ;*/
+}
+    
+article { /* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
+  padding: 1%;
+  width: 61%;
+  background-color: #E7E7E7; /* Цвет средней части сайата */
+}
+     
+.ad { /* --- КОЛОНКА ДЛЯ РЕКЛАМЫ */
+  padding: 1%;
+  background-color: #e2e2e2;   /* Ton фона */
+  width: 26%; /* ширина ОСНОВНОЙ ЧАСТИ */
+}
+footer { /* --- ПОДВАЛ */
+  text-align: center;
+  background-color: #5E5E5E; /* Цвет фона футера */
+  color: #F5F5D5; /* Цвет текста футера */
+}
 
-    /*  2.2. ----- ОГЛАВЛЕНИЕ СТРАНИЦЫ ----------------------------- */
-    div.toc {
-      cursor: pointer;
-      float: right; /*сдвигаем вправо + вынимаем из потока */
-      position: sticky; /* Оглавление страницы станет прилипющим к верху*/
-      top: 25px; /* Относится к position: sticky - Верхний край ниже родительского блока */
-      width: 50px; /* Ширина свернутого Оглавления */
-      margin: 2px 2px; /*поля */
-      border: 1px solid #bbb; /* рамка блока */
-      background-color: rgba(43, 60, 109, 0.7);  /* Цвет ФОНА свернутого меню */
-      box-shadow: inset 0 0 10px #BABABA;  /* ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини*/
-      border-radius: 5px;  /* радиус углов */
-    }
-    /* Стиль ЗАГОЛОВКА Оглавления страницы */
-    div.toc h4.work {
-      color: blue;
-      box-sizing: content-box;
-      margin: 1px auto;
-      display: flex;
-      cursor: pointer;
-      justify-content:flex-end;
-    }
-    /* Стиль CSS-треугольника */
-    .trCSS {
-      margin: 5px;
-      margin-left: 20px; /* Отодвигаю левый соседний блок  */
-      border-top: 10px solid blue;
-      border-left: 10px solid transparent;
-    }
-    /* Стили СПИСКА в Оиглвлении страницы */
-    div.toc ol {
-      display: none;
-      margin: 1px;
-      margin-left: 20px;
-      padding: 1px;
-    }
-    /* Стили пункта списка в Оиглвлении страницы */
-    div.toc li {
+   /*  2.2. ----- ОГЛАВЛЕНИЕ СТРАНИЦЫ ----------------------------- */
+   div.toc {
+     cursor: pointer;
+     float: right; /* сдвигаем вправо + вынимаем из потока */
+     position: sticky; /* Оглавление страницы станет прилипющим к верху*/
+     top: 25px; /* Относится к position: sticky - Верхний край ниже родительского блока */
+     width: 50px; /* Ширина свернутого Оглавления */
+     margin: 2px 2px; /*поля */
+     border: 1px solid #bbb; /* рамка блока */
+     background-color: rgba(43, 60, 109, 0.7);  /* Цвет ФОНА свернутого меню */
+     box-shadow: inset 0 0 10px #BABABA;  /* ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини*/
+     border-radius: 5px;  /* радиус углов */
+   }
+   /* Стиль ЗАГОЛОВКА Оглавления страницы */
+   div.toc h4.work {
+     color: blue;
+     box-sizing: content-box;
+     margin: 1px auto;
+     display: flex;
+     cursor: pointer;
+     justify-content:flex-end;
+   }
+   /* Стиль CSS-треугольника */
+   .trCSS {
+     margin: 5px;
+     margin-left: 20px; /* Отодвигаю левый соседний блок  */
+     border-top: 10px solid blue;
+     border-left: 10px solid transparent;
+   }
+   /* Стили СПИСКА в Оглвлении страницы */
+   div.toc ol {
+     display: none;
+     margin: 1px;
+     margin-left: 20px;
+     padding: 1px;
+   }
+   /* Стили пункта списка в Оиглвлении страницы */
+   div.toc li {
+     text-align: left;
+     margin: 1px;
+     padding: 1px;
+     padding-left: 1px;
+   }
+   /* ВЫДЕЛЕНИЕ выбранного пункта Оглавления страницы - в 2020 НЕ ПРИМЕНЯЮ */
+   .transctiption {
+      /*border: 1px solid green;    #bbb  рамка блока */
+      background-color: white;
+      border-radius: 5px;  /* радиус углов  */
+      padding: 3px;
       text-align: left;
-      margin: 1px;
-      padding: 1px;
-      padding-left: 1px;
-    }
-    /* ВЫДЕЛЕНИЕ выбранного пункта Оглавления страницы - в 2020 НЕ ПРИМЕНЯЮ */
-    .selected {
-      border: 1px solid #bbb;  /*  рамка блока */
-      background-color: rgba(246, 246, 246, 1.0); /*Цвет ФОНА свернутого меню */
-      box-shadow: inset 0 0 10px #BABABA; /*ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини */
-      border-radius: 5px;  /*радиус углов  */
-    }
-    /* Стили ССЫЛОК в Оглавления страницы */
-    .toc ol li a {
-      text-decoration: none;
-      color: #585877;  /* делаю цвет ссылки обычным для сайта */
-      display: block;
-    }
-    .toc ol li a:visited {
-      text-decoration: none; /* убираю подчеркивание ПОСЕЩЕННЫХ ССЫЛОК */
-    }
-
-    /*  2.3. -----  ПАРАГРАФЫ СТАТЬИ ------------------------------ */
+/*     background-color: rgba(246, 246, 246, 1.0); Цвет ФОНА свернутого меню */
+/*     box-shadow: inset 0 0 10px #BABABA; ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини */
+   }
+   /* Стили ССЫЛОК в Оглавления страницы */
+   .toc ol li a {
+     text-decoration: none;
+     color: #585877;  /* делаю цвет ссылки обычным для сайта */
+     display: block;
+   }
+   .toc ol li a:visited {
+     text-decoration: none; /* убираю подчеркивание ПОСЕЩЕННЫХ ССЫЛОК */
+   }    
+/*  2.3. -----  ПАРАГРАФЫ СТАТЬИ ------------------------------ */
     /* ЗАГОЛОВОК ПАРАГРАФА СТАТЬИ */
     .toc_h {
       text-align: center;
@@ -142,11 +147,6 @@
     .toc_h:target {
       background-color: #2B3C6D; /* выделяю только фоном */
       color: #D0D0D0;
-      /* оформление выбранного параграфа БЫЛО РАНЬШЕ до 2020 */
-/*      border: 1px solid #bbb;    рамка блока */
-/*      background-color: rgba(246, 246, 246, 1);  Цвет ФОНА свернутого меню */
-/*      box-shadow: inset 0 0 10px #BABABA;  ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини */
-/*      border-radius: 5px;   радиус углов */
     }
     /* ПАРАГРАФ СТАТЬИ */
     .toc_p {
@@ -234,49 +234,113 @@
     .no-tr:hover {cursor: auto;}
     /* --- КОНЕЦ всплывающей подсказки ТРАНСКРИПЦИИ И ПЕРЕВОДА  ------------------ */
  
-/* ------ ГЛАВНОЕ МЕНЮ ----------------  */
-#m-menu {
+/* ======== СТИЛИ ГЛАВНОЕ МЕНЮ =====================  */
+#m-menu {  /* --- Контейнер главного меню */
   text-align: center;  /* Текст в элементах (и вложенных) по центру  */
-  display: flex;
+  display: flex; /* Вложенные элементы по горизонтальной оси  */
   flex-wrap: wrap; /* В случае маленьких экранов пункты меню будут переноситься  */
   background-color: #295151; /* Цвет фона главного меню  */
   color: #F2F4D2;  /*  Цвет шрифта (наследуется)  */
-/*  Обрамление гл. меню  */
-  border-bottom: 2px solid white;  
-  border-top: 2px solid white;
+  border-top: 2px solid white; /* Граница сверху */
+  border-bottom: 2px solid white;  /* Граница снизу */
 }
-/*  Пункт меню   */
-#m-menu span.item {
+#m-menu span.item { /* --- Пункт меню   */
   -webkit-flex: 1 1 auto; /* webkit браузеры */
   -ms-flex:  1 1 auto; /* IE  */
   flex: 1 1 auto; /* flex-grow=1,  flex-shrink=1, flex-basis= auto */
 }
-/*  Тон пункта меню  при НАВЕДЕНИИ курсора  */
-#m-menu span:hover { 
-  background-color: #874444;
-  cursor: pointer;    Пока имитирую ссылку  
+#m-menu span:hover { /* --- Тон пункта меню  при НАВЕДЕНИИ курсора  */
+  background-color: #874444; /* Тон фона при наведении */
+  cursor: pointer;    /*Пока имитирую ссылку  */
 }
-/*  Разделитель пунктов меню   */
-#m-menu span.pipe { }
-/* БОРЮСЬ с показом разделителей при смене ориентации */
-.pipe2 {border-right: 2px solid white; }
-.pipe0 {border-right: 0px solid white; }
-
-/* Стиль кликнутого элемента */
-.clicked {
-  background-color: #874444;
-/*  cursor: default;   курсор не меняетя */
+#m-menu span.pipe { /* ---  Разделитель пунктов главного меню */
+  border-right-style: solid; /* Тип правой границы */ 
+  border-right-color: white; /* Тон правой границы */
+  /* Именно такое задание, ширина будет устанавливать классом в скрипте */
 }
-/*.clicked:hover {cursor: default; }  не меняет курсор */
-/* Конец главного меню */
+/* дополнительные классы, чтобы управлять шириной границы */
+.pipe2 {border-right-width: 2px; /* Ширина, если пункты вмещаются в гл. меню */ }
+.pipe0 {border-right-width: 0px; /* Ширина, если пункты НЕ вмещаются (при переносе на др. строку) */ }
+/* --- Конец разделителей гл. меню*/
+
+.clicked {  /* --- Стиль кликнутого элемента */
+  background-color: #874444;
+} /* --- Конец ГЛАВНОГО МЕНЮ */
 
 
-    /* !!!! === ЦВЕТОВАЯ  СХЕМА  САЙТА ================== !!!!!*/
-    html {color: #808080; /* Цвет ТЕКСТА приятный для глаз, old - #585877 */}
-    .cont-site {background-color: #D0D0D0;} /* Фоновый цвет сайта*/
-    article {background-color: #E7E7E7;}  /* Цвет средней полосы */
-    footer { 
-      background-color: #5E5E5E; /* Цвет фона футера */
-      color: #F5F5D5; /* Цвет текста футера */
-    }  
+/* !!!! === ЦВЕТОВАЯ  СХЕМА  САЙТА - КОПИЯ РЕАЛЬНЫХ СТИЛЕЙ ==== ВЫНУШУ В ОТДЕЛЬНЫЙ ФАЙЛ И
+   там буду ПЕРЕОПРЕДЕЛЯТЬ ============== !!!!!*/
+
+/* 1. --- Оформление  ВЫБОР ЦВЕТА */
+table.color_scheme {        /* стиль таблицы */
+  margin-left: 8px;
+  border-radius: 5px;
+  border-collapse: separate;/* раздел¤ем ¤чейки*/
+  border-spacing: 2px;      /* рассто¤ние между ¤чейками*/
+/*  width: 180px;*/
+  background-color: white;
+  /*border: 1px solid #A79250; убран в файл цвета сайта*/
+  }
+table.color_scheme td {        /* стиль ¤чейки*/
+  text-align: center;
+  background-color: #F3E6BD;
+  }
+table.color_scheme td a {
+  display: block;     /* —сылка как блочный элемент */
+  text-decoration: none;
+  line-height: 10px;
+  }  
+/* --- ќсновные цвета сайта расположенные в правом меню --- */
+td#c_grey {background-color: #D0D0D0;}  /* D0D0D0*/ 
+td#c_F3E6BD {background-color: #F3E6BD;}  /* brown*/ 
+td#c_F9D0E6 {background-color: #F9D0E6;}  /* pink*/
+td#c_B5CED2 {background-color: #B5CED2;}  /* blue*/ 
+td#c_CEFBCE {background-color: #CEFBCE;}  /* green*/ 
+
+
+
+/* --- Цвета главных разделов:  ---- */
+html {color: #808080;} /* Цвет шрифта сайта */
+.cont-site {
+  background-color: #D0D0D0; /* Фоновый цвет сайта*/
+} 
+header {  /* --- Стили ВСЕГО раздела */
+  /*background-color: aquamarine; */
+}
+header h1 { /* --- Стили логотипа */
+}
+aside { /* --- БОКОВАЯ ПАНЕЛЬ навигации */
+/*  background-color: ;*/
+}
+article {/* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
+  background-color: #E7E7E7; /* Цвет средней части сайата */
+} 
+.ad { /* --- КОЛОНКА ДЛЯ РЕКЛАМЫ */
+  background-color: #e2e2e2;   /* Ton фона */
+}
+footer { /* --- ПОДВАЛ */
+  background-color: #5E5E5E; /* Цвет фона футера */
+  color: #F5F5D5; /* Цвет текста футера */
+}  
+
+/* ---------- ГЛАВНОЕ МЕНЮ -------------------- */
+#m-menu {  /* --- Контейнер главного мен
+  background-color: #295151; /* Цвет фона главного меню  */
+  color: #F2F4D2;  /*  Цвет шрифта (наследуется)  */
+  border-top: 2px solid white; /* Граница сверху */
+  border-bottom: 2px solid white;  /* Граница снизу */
+}
+#m-menu span:hover { /* --- Тон пункта меню  при НАВЕДЕНИИ курсора  */
+  background-color: #874444; /* Тон фона при наведении */
+}
+#m-menu span.pipe { /* ---  Разделитель пунктов главного меню */
+  border-right-color: white; /* Тон правой границы */
+}
+/* дополнительные классы, чтобы управлять шириной границы */
+.pipe2 {border-width: 2px; /* Ширина, если пункты вмещаются в гл. меню */ }
+.pipe0 {border-right: 0px; /* Ширина, если пункты НЕ вмещаются (при переносе на др. строку) */ }
+
+.clicked {  /* --- Стиль кликнутого элемента */
+  background-color: #874444;
+} /* --- Конец ГЛАВНОГО МЕНЮ */
     

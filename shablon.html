@@ -8,11 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name=viewport content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/main.css" /> 
+  <link id="link_chcolor" rel="stylesheet" type="text/css" href="css/color_grey.css" /> 
   <title> Shablon 2020 site! на GitHub OlegTripolskiy</title>
-
-  <style>
-  
-  </style>
 </head>
 
 <body>
@@ -22,35 +19,31 @@
     <header>
       <h1>ЛОГОТИП</h1>
       
+      <!--  Блок транскрипции и смены полос   -->
+      <div class="transctiption">
+          <input type="checkbox" id="tir" checked="checked">Транскрипция<br>
+          <input type="radio" name='sd-place' id="left" checked="checked">слева  &lt;&lt; Меню &gt;&gt;
+          <input type="radio" name='sd-place' id="right"> справа
+      </div>
+      
       <!-- ВЫБОР ТОНОВ НА САЙТЕ -->
       <table cellspacing="0px"  class="color_scheme">
-        <tr><th colspan="6">Выберите цвет сайта:</th></tr>
+        <tr><th colspan="6">Выбрать цвет сайта:</th></tr>
         <tr>
-          <td id="c_F3E6BD"><a href="javascript:void(0)" onclick="change_color('link_chcolor','color_brown.css');return false">&nbsp;</a></td>
-          <td id="c_F9D0E6"><a href="javascript:void(0)" onclick="change_color('link_chcolor','color_pink.css');setCookie('filename','color_pink.css','Mon, 01-Jan-2001 00:00:00 GMT','/');return false">&nbsp;</a></td>
+          <td id="c_grey"><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_grey.css');return false">&nbsp;</a></td>
+          <td id="c_brown"><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_brown.css');setCookie('filename','color_pink.css','Mon, 01-Jan-2001 00:00:00 GMT','/');return false">&nbsp;</a></td>
           <td id="c_B5CED2">&nbsp;</td>
           <td id="c_CEFBCE">&nbsp;</td>
           <td>&nbsp;</td>
           <td>&nbsp;</td>
         </tr>
-      </table>
-      <!-- Конец выбора тонов на сайте -->
-      
-      <div class="selected">
-        <label>
-          <input type="checkbox" id="tir" checked="checked">Перевод слов.</label>
-        <br>
-        <label>
-          <input type="radio" name='sd-place' id="left" checked="checked">слева  &lt;&lt; SIDEBAR &gt;&gt;
-        </label>
-        <label>
-          <input type="radio" name='sd-place' id="right"> справа</label>
-      </div>
+      </table> <!-- Конец выбора тонов на сайте -->
     </header> <!-- Конец ЗАГОЛОВКА   -->
     
     <!-- ГЛАВНОЕ  МЕНЮ  -->
     <div id="m-menu">
-      <span class="item">CSS</span><span class='pipe'></span>
+      <span class="item">CSS</span> <!-- Пункт меню -->
+      <span class='pipe'></span>    <!-- Разделитель пунктов меню  -->
       <span class="item">JavaScript</span><span class='pipe'></span>
       <span class="item">Профессии WEBa</span><span class='pipe'></span>
       <span class="item">Профессии WEBa</span><span class='pipe'></span>
@@ -143,6 +136,18 @@
     </div> <!-- КОНЕЦ 3 колоночной верстки  -->
     <footer> ФУТЕР </footer>
   </div> <!-- КОНЕЦ Контейнера сайта -->
+  
+  <script type="text/javascript">
+    var sheet_name = ""; // ????? Зачем нужна переменная - разобраться.
+    
+    // функция, которая ИЗМЕНЯЕТ ЦВЕТА сайта, подключая разные таблицы стилей
+    function change_color(ident,name) {
+      // ident - в этот параметр поместим идентификатор heml элемента (тэг link)
+      // name - в этот имя файла с палитрой тонов другой цвтовой схемы.
+      var lin = document.getElementById(ident); // получаем html элемент по идентификатору.
+      lin.href=name;/*меняем цветовой стиль в заголовке*/
+    }
+  </script>
   
   <!-- Подключаем библиотеку jQuery    -->
   <script src="js/jquery-3.4.1.min.js"></script>
