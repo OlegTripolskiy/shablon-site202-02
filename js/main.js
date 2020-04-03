@@ -116,7 +116,7 @@ $(document).ready(function() {
       });
       
       // Сравниваем сумму с шириной гл.меню и показыаем или нет разделитель
-      if(width_spans > width_main){
+      if(width_spans > width_main + 1){
          $('#m-menu > span.pipe').removeClass("pipe2"); // border-right-width: 2px;
          $('#m-menu > span.pipe').addClass("pipe0");    // border-right-width: 0px;
          alert("сумма=" + width_spans + ", ширина="+width_main + ", больше");
