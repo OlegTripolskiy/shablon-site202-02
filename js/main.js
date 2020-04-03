@@ -111,7 +111,7 @@ $(document).ready(function() {
       var width_spans = 0; // Инициализируем счетчик суммы длин пунктов меню.
       
       // Получаем набор ВСЕХ элементов меню и суммируем их ширину.
-      $('#m-menu > span').each(function(indx){
+      $('#m-menu > span.item').each(function(indx){
          width_spans += +$(this).width(); // Суммируем ширину ВСЕХ элементов гл.меню
       });
       
