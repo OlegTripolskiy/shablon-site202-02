@@ -119,12 +119,12 @@ $(document).ready(function() {
       if(width_spans > width_main){
          $('#m-menu > span.pipe').removeClass("pipe2"); // border-right-width: 2px;
          $('#m-menu > span.pipe').addClass("pipe0");    // border-right-width: 0px;
-         alert("больше");
+         alert("сумма=" + width_spans + ", ширина="+width_main + ", больше");
       }
       else {
          $('#m-menu > span.pipe').removeClass("pipe0");
          $('#m-menu > span.pipe').addClass("pipe2");
-         alert("меньше");
+         alert("сумма=" + width_spans + ", ширина="+width_main + ", меньше");
       }
    }; // Конец set_pipe_width()
     
