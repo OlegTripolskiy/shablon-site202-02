@@ -35,6 +35,7 @@ header h1 { /* --- Стили логотипа */
 #site-control { /* блок транскрипций + блок цвета сайта */
   border-radius: 5px; /* Красивое скругление блока*/
   display: flex; /* Элементы внутри блока по оси Х */
+  padding: 2px;
 }
 #transctiption {  /* --- блок показа транскрипций */
    padding: 3px;    /* Внутренний отступ */
@@ -60,7 +61,7 @@ table.color_scheme td a {  /* В ячейке ссылка, при клике JS
 td#c_grey {background-color: #D0D0D0;}  /* D0D0D0*/ 
 td#c_brown {background-color: #F3E6BD;}  /* brown*/ 
 td#c_F9D0E6 {background-color: #F9D0E6;}  /* pink*/
-td#c_B5CED2 {background-color: #B5CED2;}  /* blue*/ 
+td#c_night {background-color: black;}  
 td#c_CEFBCE {background-color: #CEFBCE;}  /* green*/ 
 
 /*  ======== СТИЛИ ГЛАВНОЕ МЕНЮ 2020  =====================  */
@@ -307,12 +308,11 @@ header h1 { /* --- Стили логотипа */
 }
 #site-control { /* блок транскрипций + блок цвета сайта */
   border: 1px solid #5E5E5E;
-  padding: 2px;
-  background-color: white;
+  background-color: white; /* Задает цвет всему блоку */
 }
 #transctiption {  /* --- блок показа транскрипций */
    border-right: 1px solid #5E5E5E;    /* Разделитель транскрипции и цветов сайта */
-   background-color: white;   /* фоновый цвет*/
+   /* background-color: ;   фоновый цвет*/
 }
 #site-color { /* Блок выбора цветов сайта */ } 
 table.color_scheme { /* Таблица с выбором цвета сайта*/ } 
