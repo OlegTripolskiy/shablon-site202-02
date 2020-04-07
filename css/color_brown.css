@@ -13,7 +13,7 @@ table.color_scheme {        /* стиль таблицы */
   }
 table.color_scheme td {        /* стиль ¤чейки*/
 /*  text-align: center;*/
-  background-color: #F3E6BD;
+/*  background-color: #F3E6BD;*/
   }
 table.color_scheme td a {
 /*  display: block;      —сылка как блочный элемент */
@@ -35,6 +35,8 @@ html {color: #808080;} /* Цвет шрифта сайта */
   background-color: #F3E6BD; /* Фоновый цвет сайта*/
 } 
 header {  /* --- Стили ВСЕГО раздела */
+  display: flex;
+  flex-wrap: wrap;
   /*background-color: aquamarine; */
 }
 header h1 { /* --- Стили логотипа */

@@ -18,28 +18,32 @@
     <!-- ------ ЗАГОЛОВОК = логотип + другое -------   -->
     <header>
       <h1>ЛОГОТИП</h1>
-      
-      <!--  Блок транскрипции и смены полос   -->
-      <div class="transctiption">
-          <input type="checkbox" id="tir" checked="checked">Транскрипция<br>
-          <input type="radio" name='sd-place' id="left" checked="checked">&lt;&lt; Меню &gt;&gt;<input type="radio" name='sd-place' id="right">
+      <!--  Блок управления сайтом   -->
+      <div id="site-control">
+        <div id="transctiption"> <!--  Блок транскрипции и смены бокового меню   -->
+            <!--   ВНИМАНИЕ к идентфикатору tir - к нему привязан JS обработчик показа-непоказа транскрипции  -->
+            <input type="checkbox" id="tir" checked="checked">Транскрипция<br>
+            <div id="left-right">
+              <input  type="radio" name='sd-place' id="left" checked="checked">&lt;&lt; Меню &gt;&gt;
+              <input type="radio" name='sd-place' id="right">
+            </div>
+        </div>
+        <!-- ТАБЛИЦА ВЫБОР цвета сайта -->
+        <table cellspacing="0px"  class="color_scheme">
+          <tr><th colspan="6">Выбрать цвет сайта:</th></tr>
+          <tr> <!-- Строка с цветными прямоугольниками для выбора цвета сайта -->
+            <td id="c_grey"><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_grey.css');return false">&nbsp;</a></td>
+            <td id="c_brown"><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_brown.css');setCookie('filename','color_pink.css','Mon, 01-Jan-2001 00:00:00 GMT','/');return false">&nbsp;</a></td>
+            <td id="c_B5CED2">&nbsp;</td>
+            <td id="c_CEFBCE">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table> <!-- Конец выбора тонов на сайте -->
       </div>
-      
-      <!-- ВЫБОР ТОНОВ НА САЙТЕ -->
-      <table cellspacing="0px"  class="color_scheme">
-        <tr><th colspan="6">Выбрать цвет сайта:</th></tr>
-        <tr>
-          <td id="c_grey"><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_grey.css');return false">&nbsp;</a></td>
-          <td id="c_brown"><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_brown.css');setCookie('filename','color_pink.css','Mon, 01-Jan-2001 00:00:00 GMT','/');return false">&nbsp;</a></td>
-          <td id="c_B5CED2">&nbsp;</td>
-          <td id="c_CEFBCE">&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-      </table> <!-- Конец выбора тонов на сайте -->
     </header> <!-- Конец ЗАГОЛОВКА   -->
     
-    <!-- ГЛАВНОЕ  МЕНЮ  -->
+    <!-- ГЛАВНОЕ  МЕНЮ  сделано в 2020 -->
     <div id="m-menu">
       <span class="item">CSS</span> <!-- Пункт меню -->
       <span class='pipe'></span>    <!-- Разделитель пунктов меню  -->

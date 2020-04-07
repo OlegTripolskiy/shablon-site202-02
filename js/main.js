@@ -60,10 +60,10 @@ $(document).ready(function() {
       var engWords = [];// создаю массив английских слов находящихся на странице
       var word; // Переменная для записи перебираемых в цикле английских слов
       $('.tr').each(function(indx, elem){ // Получаем ВСЕ слова с классом tp
-      word = $(elem).text().toLowerCase() ; // записываем английское слово в нижнем регистре в переменную
-      word =$.trim(word);//удаляем возможные пробелы слева и справа
-      //alert('='+word+'-'); // Проверка работает ли функция.
-      // заполняем массив англ. словами, которых нет еще в массиве
+        word = $(elem).text().toLowerCase() ; // записываем английское слово в нижнем регистре в переменную
+        word =$.trim(word);//удаляем возможные пробелы слева и справа
+        //alert('='+word+'-'); // Проверка работает ли функция.
+        // заполняем массив англ. словами, которых нет еще в массиве
       if(engWords.indexOf(word) == -1) { // если в массиве нет этого слова
       engWords.push(word);// то добавляем в него новое слово
       }
@@ -141,5 +141,15 @@ $(document).ready(function() {
     $('#m-menu > span').removeClass("clicked");
     $(this).addClass("clicked");
   });  // === Конец управлением главного меню.
-
+  
+  // !!!!! ВЗЯТО ИЗ D:\WEB_FILES_2020\shablon-site2012\index.html - ПРОВЕРИТЬ РАБОТУ
+  // КУКИ ДОЛЖНЫ ЗАПИСЫВАТЬСЯ ПРИ УХОДЕ С САЙТА, а НЕ ПРИ КЛИКЕ НА цветной прямоугольник.
+  function setCookie (name, value, expires, path, domain, secure) {
+      document.cookie = name + "=" + escape(value) +
+        ((expires) ? "; expires=" + expires : "") +
+        ((path) ? "; path=" + path : "") +
+        ((domain) ? "; domain=" + domain : "") +
+        ((secure) ? "; secure" : "");
+      }
+  
 }); // КОНЕЦ $(document).ready(function() {})
