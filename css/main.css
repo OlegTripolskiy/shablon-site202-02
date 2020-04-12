@@ -61,7 +61,7 @@ table.color_scheme td a {  /* В ячейке ссылка, при клике JS
 td#c_grey {background-color: #D0D0D0;}  /* D0D0D0*/ 
 td#c_brown {background-color: #F3E6BD;}  /* brown*/ 
 td#c_F9D0E6 {background-color: #F9D0E6;}  /* pink*/
-td#c_night {background-color: black;}  
+td#c_night {background-color: #3C393A;}  
 td#c_CEFBCE {background-color: #CEFBCE;}  /* green*/ 
 
 /*  ======== СТИЛИ ГЛАВНОЕ МЕНЮ 2020  =====================  */
@@ -121,6 +121,138 @@ article { /* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
   width: 61%;
   background-color: #E7E7E7; /* Цвет средней части сайата */
 }
+
+/* === 2020 ОГЛАВЛЕНИЕ СТРАНИЦЫ НОВОЕ ======*/
+#toc-main { /* Контейнер ГЛАВНОГО оглавления */
+  position: sticky;
+  top: 0;
+  float: right; /* Сдвигаю право + блок становится над английскими словами */
+  /*z-index: 10;  Чтобы перекрыал английские слова (у них position: relative) 10 - это с запасом */
+  width: 250px;
+  padding: 2px;
+  border: 1px solid #bbb;  /*  рамка блока */
+  background-color: rgba(246, 246, 246, 1.0); /*Цвет ФОНА свернутого меню */
+  box-shadow: inset 0 0 10px #BABABA; /*ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини */
+  border-radius: 5px;  /*радиус углов  */
+/*  display: none;*/
+}
+#toc-main h4 { /* наименование оглавления */
+  margin: 0; /* Убираем отступы */
+  text-align: center;
+}
+#toc-ol { /* Нумерованный список */
+  margin: 0; /* Убираем отступы */
+  padding-left: 20px; /* Уменьшаем т.к. в браузере Chrome по умолчанию 40px */
+}
+#toc-main a { /* Ссылка в строке (элементе li) */
+  text-decoration: none; /* Убираем подчеркивание ссылки */
+  color: #585877;  /* меняю цвет ссылки на обычный для сайта */
+  display: block;  /* Чтобы сделать ссылкой всю строку списка*/
+}
+#toc-main a.selected { /* Выделенная ссылка - кликнутая или при загрузке */
+  color: green;  /* меняю цвет ссылки на обычный для сайта */
+  background-color: aqua;
+}
+
+/* ---  Маленькое оглавление страницы */
+#toc-small {
+  position: sticky;
+  top: 0px;
+  float: right;
+  width: 50px;
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  
+}
+/* --- СТИЛИ показывать элемент или нет */
+.toc-show {display: block;} /* Показывать элемент */
+.toc-show-none {display: none;} /* Скрывать элемент */
+
+/* === Конец ОГЛАВЛЕНИЯ */
+
+/*  2.2. ----- ОГЛАВЛЕНИЕ СТРАНИЦЫ ---------------------- */
+div.toc {
+  cursor: pointer;
+  float: right; /* сдвигаем вправо + вынимаем из потока */
+  position: sticky; /* Оглавление страницы станет прилипющим к верху*/
+  top: 25px; /* Относится к position: sticky - Верхний край ниже родительского блока */
+  width: 50px; /* Ширина свернутого Оглавления */
+  margin: 2px 2px; /*поля */
+  /*border: 1px solid #bbb;  рамка блока */
+  /*background-color: rgba(43, 60, 109, 0.7);   Цвет ФОНА свернутого меню */
+  /* box-shadow: inset 0 0 10px #BABABA;  ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини*/
+  border-radius: 5px;  /* радиус углов */
+}
+/* Стиль ЗАГОЛОВКА Оглавления страницы */
+div.toc h4.work {
+  color: blue;
+  box-sizing: content-box;
+  margin: 1px auto;
+  display: flex;
+  cursor: pointer;
+  justify-content:flex-end;
+}
+/* Стиль CSS-треугольника */
+.trCSS {
+  margin: 5px;
+  margin-left: 20px; /* Отодвигаю левый соседний блок  */
+  border-top: 10px solid blue;
+  border-left: 10px solid transparent;
+}
+/* Стили СПИСКА в Оглвлении страницы */
+div.toc ol {
+  display: none;
+  margin: 1px;
+  margin-left: 20px;
+  padding: 1px;
+}
+/* Стили пункта списка в Оиглвлении страницы */
+div.toc li {
+  text-align: left;
+  margin: 1px;
+  padding: 1px;
+  padding-left: 1px;
+}
+   /* ВЫДЕЛЕНИЕ выбранного пункта Оглавления страницы */
+    .selected {
+      /*border: 1px solid #bbb;    рамка блока */
+      /*background-color: rgba(246, 246, 246, 1.0); Цвет ФОНА свернутого меню */
+      /*box-shadow: inset 0 0 10px #BABABA; ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини */
+      /*border-radius: 5px;  радиус углов  */
+    }
+/* Стили ССЫЛОК в Оглавления страницы */
+.toc ol li a {
+  text-decoration: none;
+  color: #585877;  /* делаю цвет ссылки обычным для сайта */
+  display: block;
+}
+.toc ol li a:visited {
+  text-decoration: none; /* убираю подчеркивание ПОСЕЩЕННЫХ ССЫЛОК */
+}    
+/*  2.3. -----  ПАРАГРАФЫ СТАТЬИ ------------------------------ */
+/* ЗАГОЛОВОК ПАРАГРАФА СТАТЬИ */
+.toc_h {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  background-color: #759498; /* был #7D7D7D*/
+  color: #E7E7E7; /* Раньше был белый, но сильно контрастно */
+}
+/* выбранный ЗАГОЛОВОК ПАРАГРАФА СТАТЬИ */
+.toc_h:target {
+  background-color: #2B3C6D; /* выделяю только фоном */
+  color: #D0D0D0;
+}
+/* ПАРАГРАФ СТАТЬИ */
+.toc_p {
+  text-align: justify;
+  text-indent: 3%;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  /*position: relative;  Тогда смогу использовать jquery posdition для ::after */
+}
      
 .ad { /* --- КОЛОНКА ДЛЯ РЕКЛАМЫ */
   padding: 1%;
@@ -133,83 +265,6 @@ footer { /* --- ПОДВАЛ */
   color: #F5F5D5; /* Цвет текста футера */
 }
 
-   /*  2.2. ----- ОГЛАВЛЕНИЕ СТРАНИЦЫ ----------------------------- */
-   div.toc {
-     cursor: pointer;
-     float: right; /* сдвигаем вправо + вынимаем из потока */
-     position: sticky; /* Оглавление страницы станет прилипющим к верху*/
-     top: 25px; /* Относится к position: sticky - Верхний край ниже родительского блока */
-     width: 50px; /* Ширина свернутого Оглавления */
-     margin: 2px 2px; /*поля */
-     border: 1px solid #bbb; /* рамка блока */
-     background-color: rgba(43, 60, 109, 0.7);  /* Цвет ФОНА свернутого меню */
-     box-shadow: inset 0 0 10px #BABABA;  /* ВНУТРЕННЯЯ ТЕНЬ для всех  браузеров кроме ИЕ8 и опера-мини*/
-     border-radius: 5px;  /* радиус углов */
-   }
-   /* Стиль ЗАГОЛОВКА Оглавления страницы */
-   div.toc h4.work {
-     color: blue;
-     box-sizing: content-box;
-     margin: 1px auto;
-     display: flex;
-     cursor: pointer;
-     justify-content:flex-end;
-   }
-   /* Стиль CSS-треугольника */
-   .trCSS {
-     margin: 5px;
-     margin-left: 20px; /* Отодвигаю левый соседний блок  */
-     border-top: 10px solid blue;
-     border-left: 10px solid transparent;
-   }
-   /* Стили СПИСКА в Оглвлении страницы */
-   div.toc ol {
-     display: none;
-     margin: 1px;
-     margin-left: 20px;
-     padding: 1px;
-   }
-   /* Стили пункта списка в Оиглвлении страницы */
-   div.toc li {
-     text-align: left;
-     margin: 1px;
-     padding: 1px;
-     padding-left: 1px;
-   }
-   /* ВЫДЕЛЕНИЕ выбранного пункта Оглавления страницы - в 2020 НЕ ПРИМЕНЯЮ */
-
-   /* Стили ССЫЛОК в Оглавления страницы */
-   .toc ol li a {
-     text-decoration: none;
-     color: #585877;  /* делаю цвет ссылки обычным для сайта */
-     display: block;
-   }
-   .toc ol li a:visited {
-     text-decoration: none; /* убираю подчеркивание ПОСЕЩЕННЫХ ССЫЛОК */
-   }    
-/*  2.3. -----  ПАРАГРАФЫ СТАТЬИ ------------------------------ */
-    /* ЗАГОЛОВОК ПАРАГРАФА СТАТЬИ */
-    .toc_h {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 5px;
-      margin-bottom: 3px;
-      background-color: #759498; /* был #7D7D7D*/
-      color: #E7E7E7; /* Раньше был белый, но сильно контрастно */
-    }
-    /* выбранный ЗАГОЛОВОК ПАРАГРАФА СТАТЬИ */
-    .toc_h:target {
-      background-color: #2B3C6D; /* выделяю только фоном */
-      color: #D0D0D0;
-    }
-    /* ПАРАГРАФ СТАТЬИ */
-    .toc_p {
-      text-align: justify;
-      text-indent: 3%;
-      margin-top: 2px;
-      margin-bottom: 2px;
-      /*position: relative;  Тогда смогу использовать jquery posdition для ::after */
-    }
 
     /* 3. ===== МЕДИА ПРАВИЛА ДЛЯ РАЗНЫХ РАЗМЕРОВ ЭКРАНОВ =================	*/
     /*  3.1. ---- ШИРИНА ЭКРАНА < 30cm --- */
@@ -289,70 +344,9 @@ footer { /* --- ПОДВАЛ */
     .no-tr:hover {cursor: auto;}
     /* --- КОНЕЦ всплывающей подсказки ТРАНСКРИПЦИИ И ПЕРЕВОДА  ------------------ */
  
+/* ------------ КОНЕЦ СТИЛЕЙ на 07.04.2020 ----------------------------------  */
 
 
-/* !!!!!! ==== 2020 ВЫНЕСЕННЫЕ СТИЛИ В ОТДЕЛЬНЫЙ ФАЙЛ ==============  !!!!!! */
-/* --- 20.01.   Цвета главных разделов:  ---- */
-html {color: #808080;} /* Цвет шрифта сайта */
-.cont-site {
-  background-color: #D0D0D0; /* Фоновый цвет сайта*/
-} 
-
-/* 20.02. ======= HEADER ЦВЕТА ВСЕХ элементов в этой части сайта ========= */
-header {  /* --- Стили раздела */
-  /*background-color: ; */
-}
-header h1 { /* --- Стили логотипа */
-/*   background-color: ;*/
-/*   color: ;*/
-}
-#site-control { /* блок транскрипций + блок цвета сайта */
-  border: 1px solid #5E5E5E;
-  background-color: white; /* Задает цвет всему блоку */
-}
-#transctiption {  /* --- блок показа транскрипций */
-   border-right: 1px solid #5E5E5E;    /* Разделитель транскрипции и цветов сайта */
-   /* background-color: ;   фоновый цвет*/
-}
-#site-color { /* Блок выбора цветов сайта */ } 
-table.color_scheme { /* Таблица с выбором цвета сайта*/ } 
-/* ---------- Конец 20.02 HEADER */
-
-/* 20.03 ============= ГЛАВНОЕ МЕНЮ ================ 2020 */
-#m-menu {  /* --- Контейнер главного меню */
-  background-color: #295151; /* Цвет фона главного меню  */
-  color: #F2F4D2;  /*  Цвет шрифта (наследуется)  */
-  border-top-color: white; /* Цвет границы сверху */
-  border-bottom-color: white;  /* Цвет границы снизу */
-}
-#m-menu span:hover { /* --- Тон пункта меню  при НАВЕДЕНИИ курсора  */
-  background-color: #874444; /* Тон фона при наведении */
-}
-#m-menu span.pipe { /* ---  Разделитель пунктов главного меню */
-  border-right-color: white;  /*Тон правой границы */
-}
-/* дополнительные классы, чтобы управлять шириной границы */
-.pipe2 {border-width: 2px; /* Ширина, если пункты вмещаются в гл. меню */ }
-.pipe0 {border-right: 0px; /* Ширина, если пункты НЕ вмещаются (при переносе на др. строку) */ }
-
-.clicked {  /* --- Стиль кликнутого элемента */
-  background-color: #874444;
-} /* --- Конец 20.03  ГЛАВНОГО МЕНЮ */
-
-
-aside { /* --- БОКОВАЯ ПАНЕЛЬ навигации */
-/*  background-color: ;*/
-}
-article {/* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
-  background-color: #E7E7E7; /* Цвет средней части сайата */
-} 
-.ad { /* --- КОЛОНКА ДЛЯ РЕКЛАМЫ */
-  background-color: #e2e2e2;   /* Ton фона */
-}
-footer { /* --- ПОДВАЛ */
-  background-color: #5E5E5E; /* Цвет фона футера */
-  color: #F5F5D5; /* Цвет текста футера */
-}  
 
 
 
