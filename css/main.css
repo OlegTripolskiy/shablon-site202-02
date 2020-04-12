@@ -157,7 +157,7 @@ article { /* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
 /* ---  Маленькое оглавление страницы */
 #toc-small {
   position: sticky;
-  top: 0px;
+  top: 20px;
   float: right;
   width: 50px;
   cursor: pointer;
