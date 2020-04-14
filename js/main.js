@@ -28,7 +28,7 @@ $("document").ready(function () {
         el.addClass("selected"); // Выделяем элемент,  присваивая ему класс.
       }
     });
-  } // --- Конец if 
+  } // --- Конец выделения цветом раздела, номер которого в хэше.
   
   // --- При клике на ссылке в списке ol li в оглавлении страницы ----
   toc_links.click(function () {
@@ -54,7 +54,7 @@ $("document").ready(function () {
     $("#toc-small").removeClass("toc-show").addClass("toc-show-none");
     $("#toc-main").removeClass("toc-show-none").addClass("toc-show");
   });
-  
+// == Конец   
 
   
 }); // -- Конец $("document").ready(function ()
