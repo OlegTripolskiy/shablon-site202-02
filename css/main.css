@@ -163,7 +163,7 @@ article { /* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
 .triangle-down { /* Треугольник вних с помощью CSS */
   display: inline-block; /* Чтобы разместить стрелку ВНУТРИ родителя */
   margin-left: 30px; /* Сдвигаем вправо */
-  margin-top: 0,1em; /* Сдвигаем в центр по высоте*/ 
+  margin-top: 3px; /* Сдвигаем в центр по высоте*/ 
   border-left: 0.5em solid transparent;
   border-right: 0.5em solid transparent;
   border-top: 0.9em solid red;
