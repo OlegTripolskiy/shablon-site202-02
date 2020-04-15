@@ -7,7 +7,77 @@
 $("document").ready(function () {
   "use strict"; // Директива ECMAScript 5, ставим в начале сценария или функции 
   
-
+    // 2. ==== смена позиции sidebar с помощью JS. ==================================
+  $('[name = sd-place]').click(function () {
+    var a = $(this).attr('id');
+    if (a === 'left') {
+      $('.main').css('flex-direction', 'row');
+    } else if (a === 'right') {
+      $('.main').css('flex-direction', 'row-reverse');
+    }
+  });
+  
+  // ===== управление ГЛАВНЫМ МЕНЮ (ширина разделителя) ===============
+  // Функция устанавливающая ширину разделителей (pipe) гл. меню.
+  function set_pipe_width() {
+    var width_mmenu,
+      width_spans;
+    width_mmenu = $("#m-menu").width(); // Получаем ширину главного меню
+    width_spans = 0; // Инициализируем счетчик суммы длин пунктов меню.
+    
+    // Получаем набор ВСЕХ элементов меню и суммируем их ширину.
+    $('#m-menu > span.item').each(function (indx) {
+      width_spans += +$(this).width(); // Суммируем ширину ВСЕХ элементов гл.меню
+    });
+    
+    // Сравниваем сумму с шириной гл.меню и показыаем или нет разделитель
+    // К ширине меню доавляю 1, чтобы ЧЕТКО сравнивалось с суммой чисел (float)
+    if (width_spans > width_mmenu + 1) {
+      $('#m-menu > span.pipe').removeClass("pipe2"); // border-right-width: 2px;
+      $('#m-menu > span.pipe').addClass("pipe0");    // border-right-width: 0px;
+       //alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", больше");
+    } else {
+      $('#m-menu > span.pipe').removeClass("pipe0");
+      $('#m-menu > span.pipe').addClass("pipe2");
+       //alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", меньше");
+    }
+  } // Конец set_pipe_width()
+  
+  set_pipe_width(); // Запускаем функцию при загрузке страницы
+  
+  // Запускаем функцию при измении ориентации.
+  $(window).resize(function () {
+    set_pipe_width();
+  });
+  // --- Конец управления шириной разделителей гл. меню.
+    
+  // ---- управление ЦВЕТОМ главного меню ---------
+  $('#m-menu > span').click(function (indx) {
+    $('#m-menu > span').removeClass("clicked");
+    $(this).addClass("clicked");
+  });
+  // === Конец управлением главного меню. ===========
+  
+  // ==== КУКИ ==================
+  // Сохраняет пару имя/значение в виде cookie, кодируя значение с помощью 
+  // encodeURIComponent(), чтобы экранировать точки с запятой, запятые и пробелы. 
+  // Если в параметре daysToLive передается число, атрибут max-age 
+  // устанавливается так, что срок хранения cookie истекает через 
+  // указанное число дней. Если передать значение 0, cookie будет удален
+  function setCookie(name, value, daysToLive) {
+    var cookie = name + "=" + encodeURIComponent(value);
+    
+    if (typeof daysToLive === "number") {
+      cookie += "; max-age=" + (daysToLive * 60 * 60 * 24);
+    } else {
+      throw new Error('Параметр daysToLive должен быть числом.');
+    }
+    document.cookie = cookie;
+//    alert("Cookie записана");
+  }
+  
+  setCookie("file", "Oleg", 5);
+  
   
   // ======= 2020  РАБОТА С ОГЛАВЛЕНИЕМ СТРАНИЦЫ =====
   // --- ПРИ ЗАГРУЗКЕ страницы показываем только МАЛЕНЬКОЕ оглавление страницы 

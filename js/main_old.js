@@ -1,70 +1,64 @@
-// JS - ПОЛНАЯ ЗАГРУЗКА СТРАНИЦЫ
-window.onload = function () {
-
-  
-  
-}; // --- Конец window.onload = function(){}
-
 $(document).ready(function() {
-  // 2020 === ЭКСПЕРИМЕНТЫ С ОГЛАВЛЕНИЕМ СТРАНИЦЫ ================
-
-
-  // --- Конец ЭКСПЕРИМЕНТОВ.
   
-/*  ОТКЛЮЧИЛ НА ВРЕМЯ, ПОКА БУДУ ПИСАТЬ НОВЫЙ
-      // Удаляю текст заголовка ОГЛАВЛЕНИЯ СТРАНИЦЫ.
-      $('div.toc h4.work span:first-child').text(" ");
-
-      // 1. === УПРАВЛЕНИЕ ОГЛАВЛЕНИЕМ СТРАНИЦЫ ==============================
-      var hash = window.location.hash; // Получаем hash адресной строки (например, #toc_3) 
-      // Если первым элементом хэша будет знак # , то:
-      if (hash.search(/#/) == 0) {
-        // - У ВСЕХ li удаляем  класс selected.
-        // - Находим родителя ссылки с атрибутом href равным хэшу и его РОДИТЕЛЮ присваиваем класс. Если такого нет, то выделения просто не будет
-        // в 2020 не применяю .selected
-//        $('div.toc ol li').removeClass('selected');
-//        $('[href="' + hash + '"]').parent().attr("class", "selected");
+  // 2. ==== смена позиции sidebar с помощью JS. ==================================
+  $('[name = sd-place]').click(function() {
+    var a = $(this).attr('id');
+    if (a == 'left') $('.main').css('flex-direction', 'row');
+    else if (a == 'right') $('.main').css('flex-direction', 'row-reverse');
+  });
+  
+  // ===== управление ГЛАВНЫМ МЕНЮ (ширина разделителя) ===============
+  // Функция устанавливающая ширину разделителей (pipe) гл. меню.
+  function set_pipe_width(){
+    var width_mmenu = $("#m-menu").width(); // Получаем ширину главного меню
+    var width_spans = 0; // Инициализируем счетчик суммы длин пунктов меню.
+    
+    // Получаем набор ВСЕХ элементов меню и суммируем их ширину.
+    $('#m-menu > span.item').each(function(indx){
+       width_spans += +$(this).width(); // Суммируем ширину ВСЕХ элементов гл.меню
+    });
+    
+    // Сравниваем сумму с шириной гл.меню и показыаем или нет разделитель
+    // К ширине меню доавляю 1, чтобы ЧЕТКО сравнивалось с суммой чисел (float)
+    if(width_spans > width_mmenu + 1){  
+       $('#m-menu > span.pipe').removeClass("pipe2"); // border-right-width: 2px;
+       $('#m-menu > span.pipe').addClass("pipe0");    // border-right-width: 0px;
+       //alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", больше");
+    }
+    else {
+       $('#m-menu > span.pipe').removeClass("pipe0");
+       $('#m-menu > span.pipe').addClass("pipe2");
+       //alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", меньше");
+    }
+  }; // Конец set_pipe_width()
+  
+  set_pipe_width(); // Запускаем функцию при загрузке страницы
+  
+  // Запускаем функцию при измении ориентации.
+  $(window).resize(function(){  
+    set_pipe_width(); 
+  }); 
+  // --- Конец управления шириной разделителей гл. меню.
+    
+  // ---- управление ЦВЕТОМ главного меню ---------
+  $('#m-menu > span').click(function (indx){
+    $('#m-menu > span').removeClass("clicked");
+    $(this).addClass("clicked");
+  });  
+  // === Конец управлением главного меню. ===========
+  
+  
+  // !!!!! ВЗЯТО ИЗ D:\WEB_FILES_2020\shablon-site2012\index.html - ПРОВЕРИТЬ РАБОТУ
+  // КУКИ ДОЛЖНЫ ЗАПИСЫВАТЬСЯ ПРИ УХОДЕ С САЙТА, а НЕ ПРИ КЛИКЕ НА цветной прямоугольник.
+  function setCookie (name, value, expires, path, domain, secure) {
+      document.cookie = name + "=" + escape(value) +
+        ((expires) ? "; expires=" + expires : "") +
+        ((path) ? "; path=" + path : "") +
+        ((domain) ? "; domain=" + domain : "") +
+        ((secure) ? "; secure" : "");
       }
-      // ВАЖНО: здесь обрабатываются разные клики:
-      /  - клик по заголовку Оглавления
-      //  - клик по пункту Оглавления.
-      
-      $('div.toc h4').click(function() { // Клик по ЗАГОЛОВКУ Оглавления.
-        var el = $(this);
-        if (el.width() < 50) {
-          el.parent().css({
-            "width": "250",
-            "backgroundColor": "rgba(246, 246, 246, 1.0)"
-          });
-          $('.toc ol').css("display", "block");
-          $('div.toc h4.work span:first-child').text("Оглавление страницы:");
-        } else if ($(this).width() > 50) {
-          $('div.toc h4.work span:first-child').text("");
-          el.parent().css({
-            "width": "50",
-            "backgroundColor": "rgba(246, 246, 246, .3)"
-          });
-          $('.toc ol').css("display", "none");
-        }
-      });
-      // Обрабатываем клик по ПУНКТУ Оглавления.
-      $('div.toc ol li').click(function() {
-//        $('div.toc ol li').removeClass('selected'); // У ВСЕХ li удаляем класс, в 2020 не использую
-//        $(this).addClass('selected'); в 2020 не использую
-        $('.toc ol').css("display", "none");
-        $('div.toc h4.work span:first-child').text(" ");
-        $('.toc').css({
-          "width": "50",
-          "backgroundColor": "rgba(246, 246, 246, .3)"
-        });
-      }); // ====== КОНЕЦ управление оглавлением страницы =======
---- Конец */
-      // 2. ==== смена позиции sidebar с помощью JS. ==================================
-      $('[name = sd-place]').click(function() {
-        var a = $(this).attr('id');
-        if (a == 'left') $('.main').css('flex-direction', 'row');
-        else if (a == 'right') $('.main').css('flex-direction', 'row-reverse');
-      });
+  
+  
 
       // 3. ==== МОДУЛЬ АНГЛИЙСКИХ СЛОВ =======================================================
       // 3.1. - создаем JS-МАССИВ всех англ. слов, имеющих class = 'tr' - translation для передачи на сервер
@@ -116,52 +110,6 @@ $(document).ready(function() {
       });
       // ----- конец всплывающих подсказок	-----------------------------------------
 
-   // ===== управление ГЛАВНЫМ МЕНЮ (ширина разделителя) ===============
-   // Функция устанавливающая ширину разделителей (pipe) гл. меню.
-   function set_pipe_width(){
-      var width_mmenu = $("#m-menu").width(); // Получаем ширину главного меню
-      var width_spans = 0; // Инициализируем счетчик суммы длин пунктов меню.
-      
-      // Получаем набор ВСЕХ элементов меню и суммируем их ширину.
-      $('#m-menu > span.item').each(function(indx){
-         width_spans += +$(this).width(); // Суммируем ширину ВСЕХ элементов гл.меню
-      });
-      
-      // Сравниваем сумму с шириной гл.меню и показыаем или нет разделитель
-      // К ширине меню доавляю 1, чтобы ЧЕТКО сравнивалось с суммой чисел (float)
-      if(width_spans > width_mmenu + 1){  
-         $('#m-menu > span.pipe').removeClass("pipe2"); // border-right-width: 2px;
-         $('#m-menu > span.pipe').addClass("pipe0");    // border-right-width: 0px;
-//         alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", больше");
-      }
-      else {
-         $('#m-menu > span.pipe').removeClass("pipe0");
-         $('#m-menu > span.pipe').addClass("pipe2");
-//         alert("сумма=" + width_spans + ", ширина="+width_mmenu + ", меньше");
-      }
-   }; // Конец set_pipe_width()
-    
-  set_pipe_width(); // Запускаем функцию при загрузке страницы
-  $(window).resize(function(){  // Запускаем функцию при измении ориентации.
-//    alert("resize");
-    set_pipe_width(); 
-  }); 
-  // --- Конец управления шириной разделителей гл. меню.
-    
-  // ---- управление ЦВЕТОМ главного меню ---------
-  $('#m-menu > span').click(function (indx){
-    $('#m-menu > span').removeClass("clicked");
-    $(this).addClass("clicked");
-  });  // === Конец управлением главного меню.
-  
-  // !!!!! ВЗЯТО ИЗ D:\WEB_FILES_2020\shablon-site2012\index.html - ПРОВЕРИТЬ РАБОТУ
-  // КУКИ ДОЛЖНЫ ЗАПИСЫВАТЬСЯ ПРИ УХОДЕ С САЙТА, а НЕ ПРИ КЛИКЕ НА цветной прямоугольник.
-  function setCookie (name, value, expires, path, domain, secure) {
-      document.cookie = name + "=" + escape(value) +
-        ((expires) ? "; expires=" + expires : "") +
-        ((path) ? "; path=" + path : "") +
-        ((domain) ? "; domain=" + domain : "") +
-        ((secure) ? "; secure" : "");
-      }
+
   
 }); // КОНЕЦ $(document).ready(function() {})

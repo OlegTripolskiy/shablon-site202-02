@@ -147,17 +147,18 @@
 // устанавливается так, что срок хранения cookie истекает через 
 // указанное число дней. Если передать значение 0, cookie будет удален
 function setCookie(name, value, daysToLive) 
-{
-	var cookie = name + "=" + encodeURIComponent(value);
-	
-	if (typeof daysToLive === "number")
-		cookie += "; max-age=" + (daysToLive*60*60*24);
-	else
-		throw new Error('Параметр daysToLive должен быть числом.');
-	
-	document.cookie = cookie;
-}
-    setCookie("user", "Oleg", 5);
+  {
+    var cookie = name + "=" + encodeURIComponent(value);
+    
+    if (typeof daysToLive === "number")
+      cookie += "; max-age=" + (daysToLive*60*60*24);
+    else
+      throw new Error('Параметр daysToLive должен быть числом.');
+    
+    document.cookie = cookie;
+    alert("Cookie записана");
+  }
+    setCookie("file", "Oleg", 5);
   </script>
   
   <script type="text/javascript">
