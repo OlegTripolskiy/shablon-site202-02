@@ -7,6 +7,8 @@
 $("document").ready(function () {
   "use strict"; // Директива ECMAScript 5, ставим в начале сценария или функции 
   
+
+  
   // ======= 2020  РАБОТА С ОГЛАВЛЕНИЕМ СТРАНИЦЫ =====
   // --- ПРИ ЗАГРУЗКЕ страницы показываем только МАЛЕНЬКОЕ оглавление страницы 
   $("#toc-main").removeClass("toc-show").addClass("toc-show-none");
@@ -59,4 +61,3 @@ $("document").ready(function () {
   
 }); // -- Конец $("document").ready(function ()
 
-    
