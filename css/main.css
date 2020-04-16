@@ -51,18 +51,20 @@ table.color_scheme {        /* стиль таблицы */
   }
 table.color_scheme td {       /* стиль ¤чейки*/
   text-align: center;
+  cursor: pointer;
   }
+/* УБРАТЬ. НЕ НАДО УЖЕ */
 table.color_scheme td a {  /* В ячейке ссылка, при клике JS меняет цвет */
   display: block;      /* Сделал сылку блочным элементом */
   text-decoration: none; /* Убрал подчеркивание */
   line-height: 10px;  /* зачем это не помню - возможно для букв, если понадобится */
   }  
+
 /* --- Основные цвета сайта расположенные в правом меню (td и идентификатор Д.Б. без пробела)--- */
-td#c_grey {background-color: #D0D0D0;}  /* D0D0D0*/ 
-td#c_brown {background-color: #F3E6BD;}  /* brown*/ 
-td#c_F9D0E6 {background-color: #F9D0E6;}  /* pink*/
-td#c_night {background-color: #3C393A;}  
-td#c_CEFBCE {background-color: #CEFBCE;}  /* green*/ 
+td#color_grey {background-color: #D0D0D0;}  /* D0D0D0*/ 
+td#color_brown {background-color: #F3E6BD;}  /* brown*/ 
+td#color_night {background-color: #3C393A;}  
+td#color_CEFBCE {background-color: #CEFBCE;}  /* green*/ 
 
 /*  ======== СТИЛИ ГЛАВНОЕ МЕНЮ 2020  =====================  */
 #m-menu {  /* --- Контейнер главного меню */

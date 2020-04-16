@@ -7,6 +7,63 @@
 $("document").ready(function () {
   "use strict"; // Директива ECMAScript 5, ставим в начале сценария или функции 
   
+  // ==== КУКИ ==================
+  // --- ЗАПИСЬ КУКИ. Функци, записывающая куки -------------------
+  function setCookie(name, value, daysToLive) {
+  // Сохраняет пару имя/значение в виде cookie, кодируя значение с помощью 
+  // encodeURIComponent(), чтобы экранировать точки с запятой, запятые и пробелы. 
+    var cookie = name + "=" + encodeURIComponent(value);
+    
+  // Если в параметре daysToLive передается число, атрибут max-age 
+  // устанавливается так, что срок хранения cookie истекает через 
+  // указанное число дней. Если передать значение 0, cookie будет удален
+    if (typeof daysToLive === "number") {
+      cookie += "; max-age=" + (daysToLive * 60 * 60 * 24);
+    } else {
+      throw new Error('Параметр daysToLive должен быть числом.');
+    }
+    document.cookie = cookie;
+  }
+  // ----- ЧТЕНИЕ КУКИ -------------
+  //alert("ЧИТАЕМ " + document.cookie);
+  
+  // Функция ЧТЕНИЯ  куки с конкретным именем.
+  // Источник: https://msiter.ru/tutorials/javascript/js_cookies
+  function getCookie(cname) {
+    var name, decodedCookie, ca, i, c; // Объявляем ВСЕ переменные в функции.
+    name = cname + "="; // Будем искать имя_куки=
+    decodedCookie = decodeURIComponent(document.cookie); // Декодируем строку с cookies, чтобы обработать спец. символы
+    ca = decodedCookie.split(';'); // Записываем в массив части (разделенные ;) декодированной строки 
+    for (i = 0; i < ca.length; i += 1) { // JSLint не любит инкременты и деккременты, поэтому i += 1
+      c = ca[i];
+      
+      // Этот кусок мне ПОКА не понятен. ЕСЛИ его убрать ничего не меняется.
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }// Конец непонятому
+      
+      if (c.indexOf(name) === 0) { // Если имя куки начинается с самого начала
+        return c.substring(name.length, c.length); // получаем значение куки.
+      }
+    }
+  }
+  
+  // Читаем куки и устанавливаем цвет.
+  $("#link_chcolor").attr("href", getCookie("file_of_color"));
+  
+  // === Конец КУКИ ========================
+  
+  // ==== СМЕНА ЦВЕТОВ САЙТА ===============
+  $(".color_scheme tr td").click(function () {
+    var id_attr, color_file_name;
+    id_attr = $(this).attr("id");
+    color_file_name = "css/" + id_attr + ".css"; // Создаем путь к файлу стилей цветов.
+    $("#link_chcolor").attr("href", color_file_name); // Записываем в тэг новый путь к файлу стилей цветов 
+    setCookie("file_of_color", color_file_name, 5); // Записываем cookie с expire 5 days
+  });
+  // === КОНЕЦ смена цветов сайта.
+  
+  
     // 2. ==== смена позиции sidebar с помощью JS. ==================================
   $('[name = sd-place]').click(function () {
     var a = $(this).attr('id');
@@ -58,26 +115,7 @@ $("document").ready(function () {
   });
   // === Конец управлением главного меню. ===========
   
-  // ==== КУКИ ==================
-  // Сохраняет пару имя/значение в виде cookie, кодируя значение с помощью 
-  // encodeURIComponent(), чтобы экранировать точки с запятой, запятые и пробелы. 
-  // Если в параметре daysToLive передается число, атрибут max-age 
-  // устанавливается так, что срок хранения cookie истекает через 
-  // указанное число дней. Если передать значение 0, cookie будет удален
-  function setCookie(name, value, daysToLive) {
-    var cookie = name + "=" + encodeURIComponent(value);
-    
-    if (typeof daysToLive === "number") {
-      cookie += "; max-age=" + (daysToLive * 60 * 60 * 24);
-    } else {
-      throw new Error('Параметр daysToLive должен быть числом.');
-    }
-    document.cookie = cookie;
-//    alert("Cookie записана");
-  }
-  
-  setCookie("file", "Oleg", 5);
-  
+
   
   // ======= 2020  РАБОТА С ОГЛАВЛЕНИЕМ СТРАНИЦЫ =====
   // --- ПРИ ЗАГРУЗКЕ страницы показываем только МАЛЕНЬКОЕ оглавление страницы 

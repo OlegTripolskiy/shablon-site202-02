@@ -31,11 +31,11 @@
         <!-- ТАБЛИЦА ВЫБОР цвета сайта -->
         <table cellspacing="0px"  class="color_scheme">
           <tr><th colspan="6">Цвет сайта выбор:</th></tr>
-          <tr> <!-- Строка с цветными прямоугольниками для выбора цвета сайта -->
-            <td id="c_grey"><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_grey.css');return false">&nbsp;</a></td>
-            <td id="c_brown"><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_brown.css');setCookie('filename','color_brown.css','Mon, 01-Jan-2001 00:00:00 GMT','/');return false">&nbsp;</a></td>
-            <td id="c_night" ><a href="javascript:void(0)" onclick="change_color('link_chcolor','css/color_night.css');return false">&nbsp;</a></td>
-            <td id="c_CEFBCE" >&nbsp;</td>
+          <tr> <!-- Строка с цветными прямоугольниками для выбор   а цвета сайта -->
+            <td id="color_grey">&nbsp;</td>
+            <td id="color_brown">&nbsp;</td>
+            <td id="color_night">&nbsp;</td>
+            <td id="color_CEFBCE" >&nbsp;</td>
           </tr>
         </table> <!-- Конец выбора тонов на сайте -->
       </div>
@@ -136,42 +136,6 @@
     <footer> ФУТЕР </footer>
   </div> <!-- КОНЕЦ Контейнера сайта -->
   
-  <!--  ПРОБА КУКИ -->
-  <script>
-      // ==== КУКИ ==================
-    'use strict';
-    
-// Сохраняет пару имя/значение в виде cookie, кодируя значение с помощью 
-// encodeURIComponent(), чтобы экранировать точки с запятой, запятые и пробелы. 
-// Если в параметре daysToLive передается число, атрибут max-age 
-// устанавливается так, что срок хранения cookie истекает через 
-// указанное число дней. Если передать значение 0, cookie будет удален
-function setCookie(name, value, daysToLive) 
-  {
-    var cookie = name + "=" + encodeURIComponent(value);
-    
-    if (typeof daysToLive === "number")
-      cookie += "; max-age=" + (daysToLive*60*60*24);
-    else
-      throw new Error('Параметр daysToLive должен быть числом.');
-    
-    document.cookie = cookie;
-    alert("Cookie записана");
-  }
-    setCookie("file", "Oleg", 5);
-  </script>
-  
-  <script type="text/javascript">
-    //var sheet_name = ""; // ????? Зачем нужна переменная - разобраться.
-    
-    // функция, которая ИЗМЕНЯЕТ ЦВЕТА сайта, подключая разные таблицы стилей
-    function change_color(ident,name) {
-      // ident - в этот параметр поместим идентификатор heml элемента (тэг link)
-      // name - в этот имя файла с палитрой тонов другой цвтовой схемы.
-      var lin = document.getElementById(ident); // получаем html элемент по идентификатору.
-      lin.href=name;/*меняем цветовой стиль в заголовке*/
-    }
-  </script>
   
   <!-- Подключаем библиотеку jQuery    -->
   <script src="js/jquery-3.4.1.min.js"></script>
@@ -206,7 +170,6 @@ function setCookie(name, value, daysToLive)
   
   <script src="js/main.js"></script>
   <script src="js/main_old.js"></script>
-<!--  <link rel="stylesheet" type="text/css" href="css/main.css">-->
 </body>
 </html>
 
