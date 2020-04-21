@@ -47,10 +47,6 @@ $("document").ready(function () {
       }
     }
   }
-  
-  // Читаем куки и устанавливаем цвет.
-  $("#link_chcolor").attr("href", getCookie("file_of_color"));
-  
   // === Конец КУКИ ========================
   
   // ==== СМЕНА ЦВЕТОВ САЙТА ===============
@@ -65,6 +61,7 @@ $("document").ready(function () {
   
   
     // 2. ==== смена позиции sidebar с помощью JS. ==================================
+  // ---- Смена позиции sidebar при КЛИКЕ
   $('[name = sd-place]').click(function () {
     var a = $(this).attr('id');
     if (a === 'left') {
@@ -72,7 +69,19 @@ $("document").ready(function () {
     } else if (a === 'right') {
       $('.main').css('flex-direction', 'row-reverse');
     }
+    setCookie("s_menu", a, 5); // Записываем cookie с expire 5 days
   });
+  
+  // ---- УСТАНОВКА позиции sidebar от КУКИ
+  function smenu() {
+    var a = getCookie("s_menu"); // Получаем значение из КУКИ s_main
+    if (a === "left") {
+      $("#left").attr("checked", "checked"); // Кликаем левый импут
+    } else if (a === "right") {
+      $("#right").attr("checked", "checked"); // Кликаем правый импут
+    }
+  }
+  // --- Конец функций САЙДБАРА.
   
   // ===== управление ГЛАВНЫМ МЕНЮ (ширина разделителя) ===============
   // Функция устанавливающая ширину разделителей (pipe) гл. меню.
@@ -81,12 +90,10 @@ $("document").ready(function () {
       width_spans;
     width_mmenu = $("#m-menu").width(); // Получаем ширину главного меню
     width_spans = 0; // Инициализируем счетчик суммы длин пунктов меню.
-    
     // Получаем набор ВСЕХ элементов меню и суммируем их ширину.
     $('#m-menu > span.item').each(function (indx) {
       width_spans += +$(this).width(); // Суммируем ширину ВСЕХ элементов гл.меню
     });
-    
     // Сравниваем сумму с шириной гл.меню и показыаем или нет разделитель
     // К ширине меню доавляю 1, чтобы ЧЕТКО сравнивалось с суммой чисел (float)
     if (width_spans > width_mmenu + 1) {
@@ -100,7 +107,12 @@ $("document").ready(function () {
     }
   } // Конец set_pipe_width()
   
-  set_pipe_width(); // Запускаем функцию при загрузке страницы
+  
+  // === Функции ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+  set_pipe_width(); // Запускаем функцию при ЗАГРУЗКЕ страницы
+  // Читаем куки ПРИ ЗАГРУЗКЕ СТРАНИЦЫ.
+  $("#link_chcolor").attr("href", getCookie("file_of_color"));  // Устанавливаем ЦВЕТ сайта.
+  smenu(); // Установки куки sidebar при ПЕРЕЗАГРУЗКЕ
   
   // Запускаем функцию при измении ориентации.
   $(window).resize(function () {
@@ -110,8 +122,8 @@ $("document").ready(function () {
     
   // ---- управление ЦВЕТОМ главного меню ---------
   $('#m-menu > span').click(function (indx) {
-    $('#m-menu > span').removeClass("clicked");
-    $(this).addClass("clicked");
+    $('#m-menu > span').removeClass("clicked"); // У ВСЕХ элементов меню удаляем класс clicked
+    $(this).addClass("clicked"); // Ставим класс clicked кликнутому.
   });
   // === Конец управлением главного меню. ===========
   
