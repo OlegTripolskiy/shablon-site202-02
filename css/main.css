@@ -213,8 +213,9 @@ article { /* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
 }
 footer { /* --- ПОДВАЛ */
   text-align: center;
-  background-color: #5E5E5E; /* Цвет фона футера */
-  color: #F5F5D5; /* Цвет текста футера */
+  /*background-color: #5E5E5E;  Цвет фона футера */
+  /* color: #F5F5D5; Цвет текста футера */
+  min-height: 60px;
 }
 
 
@@ -329,3 +330,50 @@ footer { /* --- ПОДВАЛ */
 } /* === Конец ОГЛАВЛЕНИЯ СТРАНИЦЫ  */
 
 
+/* --- ТРЕНАЖЕР предлогов ----*/
+.trainer {
+  position: relative;
+  width: 90%;
+  min-height: 300px;
+  background-color: darkgray;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide-down {
+  -webkit-animation: move-down 4s linear infinite;
+          animation: move-down 4s linear infinite;
+  /* Исходное состояние - пауза*/
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+  height: 2em; /* Высота */
+  width: 70%; /* Ширина*/
+  background-color: aliceblue;
+  border-radius: 5px;
+  /* Позционирование */
+  position: absolute;
+  top: 10px; /* Сверху */
+  right: 5px; /* Прижат вправо */
+}
+#go:checked + div.slide-down {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+/* Управление анимацией */
+@-webkit-keyframes move-down {
+  100% {
+    top: 250px;
+  }
+}
+keyframes move-down {
+  100% {
+    top: 280px;
+  }
+}
+
+.word {
+  margin-left: 50px;
+  font-weight: 600;
+  color: brown;
+  cursor: pointer;
+}
