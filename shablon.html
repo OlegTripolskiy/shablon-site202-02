@@ -182,7 +182,9 @@
   <!-- !!! ПОСЛЕ jQuery. ===== МОДУЛЬ НУМЕРАЦИИ ОГЛАВЛЕНИЙ разделов СКРИПТ 2020 -  -->
   <script>
     // --- проба draggable --------------
-      $( "#draggable" ).draggable();
+      $( "#draggable" ).draggable({
+        containment:".proba",scroll: false
+      });
     
     // --- Конец draggable 
     
