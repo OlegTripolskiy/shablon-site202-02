@@ -132,7 +132,7 @@ article { /* --- ОСНОВНАЯ (средняя) ЧАСТЬ сайта */
   position: sticky;
   top: 0;
   float: right; /* Сдвигаю право + блок становится В СЛОЕ над английскими словами */
-  z-index: 10;  /*Чтобы перекрыал английские слова (у них position: relative) 10 - это с запасом */
+  z-index: 10;  /* !!!РЕШАЕТ ПРОБЛЕМУ, При НОВЫХ position: relativ ВИДНЫ англ.слова. Перекрывает с запасом */
   width: 250px;
   padding: 2px;
   border-radius: 5px;  /*радиус углов  */
@@ -376,4 +376,18 @@ keyframes move-down {
   font-weight: 600;
   color: brown;
   cursor: pointer;
+}
+
+/* --- DRAGGAB LE ----- */
+.proba {
+  width: 95%;
+  min-height: 200px;
+  background-color: bisque;
+  margin: auto;
+}
+
+#draggable {
+  width: 50px;
+  height: 50px;
+  background-color: cadetblue;
 }
