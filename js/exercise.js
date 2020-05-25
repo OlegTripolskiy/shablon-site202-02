@@ -1,7 +1,24 @@
 // === УПРАЖНЕНИЯ по АНГЛИЙСКОМУ ЯЗЫКУ ==========
 $("document").ready(function () {
   
-    // --- проба события tachstart
+    $(document).on("touchstart  mousedown", ".prep", function(event) {
+            //если касание, то вычисляем через event.originalEvent.touches[0]:
+            if (event.type == "touchstart") {
+                var touch = event.originalEvent.touches[0] || event.originalEvent.changedTouches[0];
+                var offset = (touch.clientX - $(event.target).offset().left);
+            }
+            else {
+            //если нажата кнопка мышки:
+              alert("Mouse DOWN");
+                //var offset = (event.offsetX || event.clientX - $(event.target).offset().left);
+            }
+            console.log(offset);
+            //отменяем "всплытие сообщений", чтобы не вызывался клик на тач-устройствах.
+            event.stopPropagation();
+            event.preventDefault();
+});
+  
+    // --- проба события tachstart - РАБОТАЕТ.
     $(".preposiotions").on('click', '.prep', function(){
       $(this).addClass('circle');
     });
