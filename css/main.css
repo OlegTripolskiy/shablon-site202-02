@@ -423,8 +423,8 @@ keyframes move-down {
 
 /* проба окружности */
 .circle {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   background-color: rgba(127,255,0, 0.5);
   text-align: center;
