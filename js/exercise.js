@@ -2,7 +2,7 @@
 $("document").ready(function () {
   
     // --- проба события tachstart
-    $("#exercise-1").on('click', '.prep', function(){
+    $(".preposiotions").on('click', '.prep', function(){
       $(this).addClass('circle');
     });
     //$(".prep").addEventListener("click", go());
