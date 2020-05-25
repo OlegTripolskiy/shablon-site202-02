@@ -1,5 +1,12 @@
 // === УПРАЖНЕНИЯ по АНГЛИЙСКОМУ ЯЗЫКУ ==========
 $("document").ready(function () {
+  
+    // --- проба события tachstart
+    $("#exercise-1").on('click', '.prep', function(){
+      $(this).addClass('circle');
+    });
+    //$(".prep").addEventListener("click", go());
+    
   // --- проба draggable --------------
     $( ".prep" ).draggable({
         containment:"#exercise-1", revert: true, revertDuration: 0,
