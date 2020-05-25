@@ -4,7 +4,7 @@ $("document").ready(function () {
     $( ".prep" ).draggable({
         containment:"#exercise-1", revert: true, revertDuration: 0,
         //cursor: "move", // ПРОБЛЕМА: Курсор появляется на краткий миг.
-        cursorAt: { top: 20, left: 20 } // Позиционироване элемент от курсора
+        //cursorAt: { top: 20, left: 20 } // Позиционироване элемент от курсора
     }); // --- Конец draggable
 
     // --- droppable

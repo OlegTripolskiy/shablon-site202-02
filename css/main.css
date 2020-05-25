@@ -391,7 +391,7 @@ keyframes move-down {
   color: #874444;
   font-size: 1.2em;
   font-weight: 600;
-  cursor: crosshair;
+  cursor: pointer;
   z-index: 2;
 }
 
@@ -419,4 +419,23 @@ keyframes move-down {
 }
 .hover {
   border: 1px solid blue;
+}
+
+/* проба окружности */
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+.prep:hover {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(127,255,0, 0.5);
+/*  background-color:chartreuse;*/
+  text-align: center;
+  vertical-align: middle;
 }
