@@ -4,8 +4,9 @@ $("document").ready(function () {
     $(document).on("touchstart  mousedown", ".prep", function(event) {
             //если касание, то вычисляем через event.originalEvent.touches[0]:
             if (event.type == "touchstart") {
-                var touch = event.originalEvent.touches[0] || event.originalEvent.changedTouches[0];
-                var offset = (touch.clientX - $(event.target).offset().left);
+              alert("TouchSTART");
+                //var touch = event.originalEvent.touches[0] || event.originalEvent.changedTouches[0];
+                //var offset = (touch.clientX - $(event.target).offset().left);
             }
             else {
             //если нажата кнопка мышки:
