@@ -1,6 +1,6 @@
 // === УПРАЖНЕНИЯ по АНГЛИЙСКОМУ ЯЗЫКУ ==========
 $("document").ready(function () {
-  
+    /*
     $(document).on("touchstart  mousedown", ".prep", function(event) {
             //если касание, то вычисляем через event.originalEvent.touches[0]:
             if (event.type == "touchstart") {
@@ -10,15 +10,17 @@ $("document").ready(function () {
             }
             else {
             //если нажата кнопка мышки:
-              alert("Mouse DOWN");
+              let = 
+              console.log("Mouse DOWN");
+              //alert("Mouse DOWN");
                 //var offset = (event.offsetX || event.clientX - $(event.target).offset().left);
             }
-            console.log(offset);
+            //console.log(offset);
             //отменяем "всплытие сообщений", чтобы не вызывался клик на тач-устройствах.
             event.stopPropagation();
             event.preventDefault();
 });
-  
+*/  
     // --- проба события tachstart - РАБОТАЕТ.
     $(".preposiotions").on('click', '.prep', function(){
       $(this).addClass('circle');
@@ -29,7 +31,7 @@ $("document").ready(function () {
     $( ".prep" ).draggable({
         containment:"#exercise-1", revert: true, revertDuration: 0,
         //cursor: "move", // ПРОБЛЕМА: Курсор появляется на краткий миг.
-        //cursorAt: { top: 20, left: 20 } // Позиционироване элемент от курсора
+        cursorAt: { top: 20, left: 20 } // Позиционироване элемент от курсора
     }); // --- Конец draggable
 
     // --- droppable
