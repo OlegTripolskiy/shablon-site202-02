@@ -424,11 +424,12 @@ keyframes move-down {
 
 /* проба окружности */
 .circle {
+  display: block;
   width: 100px;
   height: 50px;
 /*  border-radius: 50%;*/
   background-color: rgba(127,255,0, 0.5);
-  text-align:right;
+  text-align: right;
   vertical-align: middle;
 }
 .prep:hover {
