@@ -31,6 +31,10 @@ $("document").ready(function () {
       alert("TouchSTART");
       $(this).addClass('circle');
     });
+    $(document).on("touchend", ".prep", function(event) {
+      alert("TouchEND");
+      $(this).removeClass('circle');
+    });  
     //$( ".prep" ).addEventListener('touchstart', function(){
     //  $(this).addClass('circle');
     //});
