@@ -29,6 +29,7 @@ $("document").ready(function () {
     */
     $(document).on("touchstart", ".prep", function(event) {
       alert("TouchSTART");
+      $(this).addClass('circle');
     });
     //$( ".prep" ).addEventListener('touchstart', function(){
     //  $(this).addClass('circle');
