@@ -28,11 +28,11 @@ $("document").ready(function () {
     //$(".prep").addEventListener("click", go());
     */
     $(document).on("touchstart", ".prep", function(event) {
-      alert("TouchSTART");
+      //alert("TouchSTART");
       $(this).addClass('circle');
     });
     $(document).on("touchend", ".prep", function(event) {
-      alert("TouchEND");
+      //alert("TouchEND");
       $(this).removeClass('circle');
     });  
     //$( ".prep" ).addEventListener('touchstart', function(){
