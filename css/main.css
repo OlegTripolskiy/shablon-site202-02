@@ -380,7 +380,7 @@ keyframes move-down {
 
 /* --- DRAGGAB LE ----- */
 #exercise-1 {
-  padding-top: 8px;
+  padding-top: 10px;
   width: 100%;
   min-height: 200px;
   background-color: #F3F3F3;
@@ -425,8 +425,8 @@ keyframes move-down {
 
 /* проба окружности */
 .circle {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background-color: rgba(127,255,0, 0.5);
   text-align: center;
