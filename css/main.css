@@ -396,12 +396,12 @@ keyframes move-down {
 }
 
 .sentences {
-  width: 85%;
+  width: 80%;
   border-right: 1px solid grey;
 }
 
 .preposiotions {
-  width: 14%;
+  width: 19%;
   display: flex; /* */
   flex-direction: column; /* Располагаем элементы вертикально */
   justify-content: center; /* Центрируем их по центру вертикальной оси */
@@ -423,7 +423,7 @@ keyframes move-down {
 
 /* проба окружности */
 .circle {
-  width: 65px;
+  width: 80px;
   height: 65px;
   border-radius: 50%;
   background-color: rgba(127,255,0, 0.5);
