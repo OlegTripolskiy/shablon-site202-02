@@ -410,8 +410,8 @@ keyframes move-down {
 
 .drop {
   display: inline-block;
-  min-width: 50px; /* Если предлог будет шире, то раздвинет */
-  height: 20px;
+  min-width: 60px; /* Если предлог будет шире, то раздвинет */
+  height: 25px;
   border-bottom: 1px solid grey;
   text-align: center;
   /*z-index: 1; */
@@ -419,6 +419,7 @@ keyframes move-down {
 }
 .hover {
   border: 1px solid blue;
+  background-color: white;
 }
 
 /* проба окружности */
@@ -437,4 +438,20 @@ keyframes move-down {
 /*  background-color: rgba(127,255,0, 0.5);*/
 /*  text-align: center;*/
 /*  vertical-align: middle;*/
+}
+
+.question {
+  padding: 3px;
+  border-radius: 5px;
+  background-color: azure;
+  margin-bottom: 5px;
+}
+
+.eng {
+  font-weight: 400;
+  color: #874444;
+}
+
+.rus {
+  font-style: oblique;
 }
