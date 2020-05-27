@@ -20,13 +20,20 @@ $("document").ready(function () {
             event.stopPropagation();
             event.preventDefault();
 });
-*/  
+*/  /*
     // --- проба события tachstart - РАБОТАЕТ.
     $(".preposiotions").on('click', '.prep', function(){
       $(this).addClass('circle');
     });
     //$(".prep").addEventListener("click", go());
-    
+    */
+    $(document).on("touchstart", ".prep", function(event) {
+      alert("TouchSTART");
+    });
+    //$( ".prep" ).addEventListener('touchstart', function(){
+    //  $(this).addClass('circle');
+    //});
+  
   // --- проба draggable --------------
     $( ".prep" ).draggable({
         containment:"#exercise-1", revert: true, revertDuration: 0,
