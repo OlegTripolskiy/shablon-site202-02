@@ -1,7 +1,11 @@
 // === УПРАЖНЕНИЯ по АНГЛИЙСКОМУ ЯЗЫКУ ==========
 
 // ======= SORTABLE =========================
-$( "#sortable" ).sortable().disableSelection();
+$( "#sortable" ).sortable({
+  axis: 'y',
+  cancel:".disabled",
+  items:"li:not(.disabled)"
+}).disableSelection();
 // disableSelection для отмены выделения текста на элементах;
 
 // ======= DRAGGABLE =========================

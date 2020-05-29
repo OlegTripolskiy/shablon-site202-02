@@ -465,13 +465,26 @@ keyframes move-down {
   list-style-type: none; 
   margin:0; 
   padding:0; 
-  width:60%;
+  width: 80%;
 }
 #sortable li{
-  margin:3px; 
-  padding:0.4em; 
-  font-size:1.4em; 
-/*  height:18px; */
+  margin:1px; 
+  padding:3px; 
+  font-size:1.0em; 
   background-color:#fff;
-  border:1px solid #888;
+  border: 1px solid #888;
+  border-radius: 5px;
 }
+
+.title {
+  color: #874444;
+  font-weight: 600;
+  text-align: center;
+  background-color: #D0D0D0; 
+}
+
+.hidd {
+  visibility: hidden;
+  font-size: 3px;
+  height: 5px;
+  }
