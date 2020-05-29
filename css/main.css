@@ -460,3 +460,18 @@ keyframes move-down {
 .work1 {
   text-align: center;
 }
+
+#sortable {
+  list-style-type: none; 
+  margin:0; 
+  padding:0; 
+  width:60%;
+}
+#sortable li{
+  margin:3px; 
+  padding:0.4em; 
+  font-size:1.4em; 
+/*  height:18px; */
+  background-color:#fff;
+  border:1px solid #888;
+}
