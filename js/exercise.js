@@ -1,16 +1,35 @@
 // === УПРАЖНЕНИЯ по АНГЛИЙСКОМУ ЯЗЫКУ ==========
 
-// ======= SORTABLE =========================
-$( "#sortable" ).sortable({
-  axis: 'y',
-  cancel:".disabled",
-  items:"li:not(.disabled)"
-}).disableSelection();
-// disableSelection для отмены выделения текста на элементах;
 
-// ======= DRAGGABLE =========================
-//  --- Для сенсорных экранов ВЫДЕЛЯЕМ предлог зеленым кругом. ---
-$("document").ready(function () {  // Добввяем класс при прикосновении
+
+
+$("document").ready(function () {
+
+    // ======= SORTABLE =========================
+    // --- SORTABLE - СТРОКАМИ ТАБЛИЦЫ --------
+    // Функция, которая не дает строке уменьшаться при переключении.
+    let fixHelper = function(e, ui) {
+        ui.children().each(function() {
+            $(this).width($(this).width());
+        });
+        return ui;
+    };
+
+    $('.ex-type-1 tbody').sortable({
+        helper: fixHelper
+    });
+
+    // --- SORTABLE ДИВАМИ ------------
+    $( "#sortable" ).sortable({
+        axis: 'y',
+        cancel:".disabled",
+        items:"li:not(.disabled)"
+    }).disableSelection();
+    // disableSelection для отмены выделения текста на элементах;
+
+    // ======= DRAGGABLE =========================
+    //  --- Для сенсорных экранов ВЫДЕЛЯЕМ предлог зеленым кругом. ---
+    // Добввяем класс при прикосновении
     $(document).on("touchstart", ".prep", function(event) {
         $(this).addClass('circle');
     });

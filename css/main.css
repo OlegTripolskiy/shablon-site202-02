@@ -460,7 +460,34 @@ keyframes move-down {
 .work1 {
   text-align: center;
 }
+/* === SORTABLE =========== */
+/* --- SORTABLE СТРОКИ ТАБЛИЦЫ  -----*/
+/* Упражнение на базе таблицы, тип 1 */
+.ex-type-1 { /* Вся таблица */
+  margin: 10px auto;
+  width: 95%;
+  border: 1px solid blue;
+  border-collapse: collapse;
+}
+.ex-type-1 th {
+  color: #874444;
+}
+.ex-type-1 .row {
+  background-color: white;
+/*  border-radius: 5px;*/
+/*  display: block;*/
+}
+.ex-type-1 tr td {
+  border: 1px solid grey;
+  cursor: move;
+}
+.ex-type-1 tr td.number {
+  color: #874444;
+  text-align: center;
+}
 
+
+/* --- SORTABLE СПИСКИ  -----*/
 #sortable {
   list-style-type: none; 
   margin:0; 
