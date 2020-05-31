@@ -466,11 +466,11 @@ keyframes move-down {
 .ex-type-1 { /* Вся таблица */
   margin: 10px auto;
   width: 95%;
-  border: 1px solid blue;
   border-collapse: collapse;
 }
 .ex-type-1 th {
   color: #874444;
+  border: 1px solid grey;
 }
 .ex-type-1 .row {
   background-color: white;
