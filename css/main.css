@@ -465,7 +465,7 @@ keyframes move-down {
 /* Упражнение на базе таблицы, тип 1 */
 .ex-type-1 { /* Вся таблица */
   margin: 10px auto;
-  width: 95%;
+  width: 90%;
   border-collapse: collapse;
 }
 .ex-type-1 th {
@@ -484,6 +484,11 @@ keyframes move-down {
 .ex-type-1 tr td.number {
   color: #874444;
   text-align: center;
+}
+.ex-type-1 td:nth-child(3) {
+  color: red;
+  background-color: #E7E7E7;
+  visibility: hidden;
 }
 
 

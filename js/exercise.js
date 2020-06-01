@@ -16,6 +16,7 @@ $("document").ready(function () {
     };
 
     $('.ex-type-1 tbody').sortable({
+        connectWith:".connectedSortable",
         helper: fixHelper
     });
 
@@ -26,6 +27,7 @@ $("document").ready(function () {
         items:"li:not(.disabled)"
     }).disableSelection();
     // disableSelection для отмены выделения текста на элементах;
+    
 
     // ======= DRAGGABLE =========================
     //  --- Для сенсорных экранов ВЫДЕЛЯЕМ предлог зеленым кругом. ---
