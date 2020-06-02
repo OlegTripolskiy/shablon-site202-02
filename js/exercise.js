@@ -5,7 +5,7 @@ $("document").ready(function () {
     //$('.tr-1').each(function(){ //!!!! РАБОТАЕТ
     //  $(this).addClass("new");
     //});
-    $('.tr-1').on('click', function(){
+    $('.tr-1').on('touchend', function(){
       $('.tr-1').removeClass('new');
       $(this).addClass("new");
     });
