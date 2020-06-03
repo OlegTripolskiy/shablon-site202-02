@@ -1,20 +1,35 @@
 // === УПРАЖНЕНИЯ по АНГЛИЙСКОМУ ЯЗЫКУ ==========
 $("document").ready(function () {
-    //Удаляем псевдоэлемнты англ.слов в упраженениях
-//    $('.tr-1').css("background", "red");
-    //$('.tr-1').each(function(){ //!!!! РАБОТАЕТ
-    //  $(this).addClass("new");
-    //});
-    $('.tr-1').on('touchend', function(){
-      $('.tr-1').removeClass('new');
-      $(this).addClass("new");
-    });
-  
-    // Проверка клика на английском слове в sortable
-    //$('.tr-1').click(function(){
-    //  alert("Click!");
-    //});
     
+  // ===  Для SENSITIVE. Показ транскрипций слов в упражнениях с sortable. ===
+    $('.tr-1').on('touchend mouseover', function(event){
+      if (event.type == 'touchend') {
+        alert("touchend");
+        $('.tr-1').removeClass('new');
+        $(this).addClass("new");
+      } else if (event.type == 'mouseover') {
+        //console.log('mouseover');
+        alert("mouseover");
+        $('.tr-1').removeClass('new');
+        $(this).addClass("new");
+      } // Конец if
+      
+    }); // Конец функции
+  
+    // === Для DESKTOP ========
+  /*
+    $(document).on("mouseover", ".tr-1", function(){
+      $(this).css("color", "red");
+      console.log('PC');
+      //$('.tr-1').removeClass('new');
+      //$(this).addClass("new");
+    });
+  */
+    // Убираем показанную транскрипцию после клика в любом другом месте
+    //$('body').not('.tr-1').on('click', function(){
+   //   $('.tr-1').removeClass('new');  //Удаляем псевдоэлемнты англ.слов в упраженениях
+   // });
+  
     // ======= SORTABLE =========================
     // --- SORTABLE - СТРОКАМИ ТАБЛИЦЫ --------
     // Функция, которая не дает строке уменьшаться при переключении.
