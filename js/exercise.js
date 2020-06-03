@@ -15,7 +15,7 @@ $("document").ready(function () {
     }); // Конец функции
 
     // --- Убрать транскрипцию кликом на свободное место.
-    $('.tr-1').on('mouseout', function(event){
+    $('body:not(.tr-1)').on('click', function(event){
       //console.log('click');
       $('.tr-1').removeClass('new');
     });
