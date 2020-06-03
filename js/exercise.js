@@ -4,16 +4,12 @@ $("document").ready(function () {
   // ===  Для SENSITIVE. Показ транскрипций слов в упражнениях с sortable. ===
     $('.tr-1').on('touchend mouseover', function(event){
       if (event.type == 'touchend') {
-        alert("touchend");
         $('.tr-1').removeClass('new');
         $(this).addClass("new");
-        return;
       } else if (event.type == 'mouseover') {
-        //console.log('mouseover');
         alert("mouseover");
         $('.tr-1').removeClass('new');
         $(this).addClass("new");
-        return;
       } // Конец if
       
     }); // Конец функции
