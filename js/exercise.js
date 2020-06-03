@@ -7,7 +7,7 @@ $("document").ready(function () {
         $('.tr-1').removeClass('new');
         $(this).addClass("new");
       } else if (event.type == 'mouseover') {
-        alert("mouseover");
+        //alert("mouseover");
         $('.tr-1').removeClass('new');
         $(this).addClass("new");
       } // Конец if
