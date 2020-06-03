@@ -7,11 +7,13 @@ $("document").ready(function () {
         alert("touchend");
         $('.tr-1').removeClass('new');
         $(this).addClass("new");
+        return;
       } else if (event.type == 'mouseover') {
         //console.log('mouseover');
         alert("mouseover");
         $('.tr-1').removeClass('new');
         $(this).addClass("new");
+        return;
       } // Конец if
       
     }); // Конец функции
