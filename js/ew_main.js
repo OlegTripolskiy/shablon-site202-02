@@ -54,13 +54,15 @@ $(document).ready(function () {
     $('.tr').on('touchend mouseover', function(event){ // Отслеживаем СРАЗУ ДВА события.
         if ($("#tir").prop('checked') == true) { // Если checkbox показа транскрипций включен
             if (event.type == 'touchend') { // Если СЕНСОРНОЕ событие
+                alert('touchend');
                 $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
                 $(this).addClass("show");     // Показываем псевдоклассы только у текущего
             } else if (event.type == 'mouseover') { // Если курсор 
+                alert('mousover');
                 $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
                 $(this).addClass("show"); // Показываем псевдоклассы только у текущего
             } // Конец внутренноего if
-        } else {  // Если checkbox показа транскрипций включен
+        } else {  // Если checkbox показа транскрипций выключен
             $('.tr').removeClass('show');
         } // Конец внешнего if
     }); // Конец on 'touchend mouseover' 
