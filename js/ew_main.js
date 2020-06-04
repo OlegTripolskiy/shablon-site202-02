@@ -48,13 +48,26 @@ $(document).ready(function () {
         distance = el.parent().width() - el.position().left; // ? Заново пересчитываем
     });
 
-    //	3.5.  включение-отключение показа всплывающих подсказок
-    $("#tir").click(function () {
-        if ($(this).prop('checked') === false) {
-            $('.tr').addClass('no-tr');
-        } else if ($(this).prop('checked') === true) {
-            $('.tr').removeClass('no-tr');
-        }
+    // 3.6 === Показ транскрипций слов для SENSITIVE и DESKTOP.  ===
+    
+      // --- КОНТРОЛЬ СОБЫТИЙ (DESKTOP или SENSITIVE)
+    $('.tr').on('touchend mouseover', function(event){ // Отслеживаем СРАЗУ ДВА события.
+        if ($("#tir").prop('checked') == true) { // Если checkbox показа транскрипций включен
+            if (event.type == 'touchend') { // Если СЕНСОРНОЕ событие
+                $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
+                $(this).addClass("show");     // Показываем псевдоклассы только у текущего
+            } else if (event.type == 'mouseover') { // Если курсор 
+                $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
+                $(this).addClass("show"); // Показываем псевдоклассы только у текущего
+            } // Конец внутренноего if
+        } else {  // Если checkbox показа транскрипций включен
+            $('.tr').removeClass('show');
+        } // Конец внешнего if
+    }); // Конец on 'touchend mouseover' 
+  
+      // --- Убрать транскрипцию кликом на свободное место.
+    $('body:not(.tr)').on('click', function(event){
+        $('.tr').removeClass('show');
     });
     // ----- конец всплывающих подсказок	-----------------------------------------
 }); // КОНЕЦ $(document).ready(function() {})

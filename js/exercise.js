@@ -1,39 +1,7 @@
 // === УПРАЖНЕНИЯ по АНГЛИЙСКОМУ ЯЗЫКУ ==========
 $("document").ready(function () {
     
-  // ===  Для SENSITIVE и DESKTOP. Показ транскрипций слов в упражнениях с sortable. ===
-    // --- Показ транскрипций
-    $('.tr-1').on('touchend mouseover', function(event){
-      if (event.type == 'touchend') {
-        $('.tr-1').removeClass('new');
-        $(this).addClass("new");
-      } else if (event.type == 'mouseover') {
-        //alert("mouseover");
-        $('.tr-1').removeClass('new');
-        $(this).addClass("new");
-      } // Конец if
-    }); // Конец функции
 
-    // --- Убрать транскрипцию кликом на свободное место.
-    $('body:not(.tr-1)').on('click', function(event){
-      //console.log('click');
-      $('.tr-1').removeClass('new');
-    });
-  
-  
-    // === Для DESKTOP ========
-  /*
-    $(document).on("mouseover", ".tr-1", function(){
-      $(this).css("color", "red");
-      console.log('PC');
-      //$('.tr-1').removeClass('new');
-      //$(this).addClass("new");
-    });
-  */
-    // Убираем показанную транскрипцию после клика в любом другом месте
-    //$('body').not('.tr-1').on('click', function(){
-   //   $('.tr-1').removeClass('new');  //Удаляем псевдоэлемнты англ.слов в упраженениях
-   // });
   
     // ======= SORTABLE =========================
     // --- SORTABLE - СТРОКАМИ ТАБЛИЦЫ --------
