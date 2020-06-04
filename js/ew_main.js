@@ -58,12 +58,12 @@ $(document).ready(function () {
                 $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
                 $(this).addClass("show");     // Показываем псевдоклассы только у текущего
             } else if (event.type == 'mouseover') { // Если курсор 
-                alert('mousover');
+                alert($(this).val());
                 $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
                 $(this).addClass("show"); // Показываем псевдоклассы только у текущего
             } // Конец внутренноего if
         } else {  // Если checkbox показа транскрипций выключен
-            $('.tr').removeClass('show');
+            //$('.tr').removeClass('show');
         } // Конец внешнего if
     }); // Конец on 'touchend mouseover' 
   
