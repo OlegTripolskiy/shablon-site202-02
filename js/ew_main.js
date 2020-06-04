@@ -58,7 +58,7 @@ $(document).ready(function () {
                 $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
                 $(this).addClass("show");     // Показываем псевдоклассы только у текущего
             } else if (event.type == 'mouseover') { // Если курсор 
-                alert($(this).val());
+                alert($(this).html());
                 $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
                 $(this).addClass("show"); // Показываем псевдоклассы только у текущего
             } // Конец внутренноего if
