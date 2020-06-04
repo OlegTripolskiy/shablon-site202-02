@@ -54,7 +54,7 @@ $(document).ready(function () {
     $('.tr').on('touchend mouseover', function(event){ // Отслеживаем СРАЗУ ДВА события.
         if ($("#tir").prop('checked') == true) { // Если checkbox показа транскрипций включен
             if (event.type === 'touchend') { // Если СЕНСОРНОЕ событие
-                //return true;
+                return true;
                 alert('touchend');
                 //$('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
                 $(this).addClass("show");     // Показываем псевдоклассы только у текущего
