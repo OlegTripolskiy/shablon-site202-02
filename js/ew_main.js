@@ -52,14 +52,12 @@ $(document).ready(function () {
     
       // --- КОНТРОЛЬ СОБЫТИЙ (DESKTOP или SENSITIVE)
     // --- ПРОБА обработки событий с помощью switch case  
-    $('.tr').on('touchend mouseover', function(event){ // Отслеживаем СРАЗУ ДВА события.
-        if (event.type === 'touchend') {
-            alert(" Сработало - " + event.type );
-            $('.tr').off('mouseover')
-        } else if (event.type === 'mouseover') {
-            alert(" Сработало - " + event.type );
-        }
-        
+    $('.tr').on('touchend', function(event){ // Отслеживаем СРАЗУ ДВА события.
+        alert(" Сработало - " + event.type );
+        $('.tr').off('mouseover');
+    });
+    $('.tr').on('mouseover', function(event){
+        alert(" Сработало - " + event.type );
     });
     
    /* 
