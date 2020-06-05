@@ -51,6 +51,12 @@ $(document).ready(function () {
     // 3.6 === Показ транскрипций слов для SENSITIVE и DESKTOP.  ===
     
       // --- КОНТРОЛЬ СОБЫТИЙ (DESKTOP или SENSITIVE)
+    // --- ПРОБА обработки событий с помощью switch case  
+    $('.tr').on('touchend mouseover', function(event){ // Отслеживаем СРАЗУ ДВА события.
+        alert(" Сработало - " + event.type );
+    });
+    
+   /* 
     $('.tr').on('touchend mouseover', function(event){ // Отслеживаем СРАЗУ ДВА события.
         if ($("#tir").prop('checked') == true) { // Если checkbox показа транскрипций включен
             if (event.type === 'touchend') { // Если СЕНСОРНОЕ событие
@@ -67,7 +73,7 @@ $(document).ready(function () {
             //$('.tr').removeClass('show');
         } // Конец внешнего if
     }); // Конец on 'touchend mouseover' 
-  
+  */
       // --- Убрать транскрипцию кликом на свободное место.
     $('body:not(.tr)').on('click', function(event){
         $('.tr').removeClass('show');
