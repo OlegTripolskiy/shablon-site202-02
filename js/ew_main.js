@@ -55,6 +55,7 @@ $(document).ready(function () {
     $('.tr').on('touchend mouseover', function(event){ // Отслеживаем СРАЗУ ДВА события.
         if (event.type === 'touchend') {
             alert(" Сработало - " + event.type );
+            $('.tr').off('mouseover')
         } else if (event.type === 'mouseover') {
             alert(" Сработало - " + event.type );
         }
