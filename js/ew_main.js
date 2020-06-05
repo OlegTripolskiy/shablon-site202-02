@@ -59,12 +59,13 @@ $(document).ready(function () {
         //$(this).addClass("show");     // Показываем псевдоклассы только у текущего
     });
   */
-    $('span.tr-ex').hover(
-        function(event){
-        //alert(" Сработало - " + event.type );
-        //let that = $(this);
+    $('span.tr-ex').hover(function(event){
         $('span.tr-ex').not($(this)).removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
         $(this).addClass("show");     // Показываем псевдоклассы только у текущего
+    });
+      // --- Убрать транскрипцию кликом на свободное место.
+    $('body:not(.tr-ex)').on('click', function(event){
+        $('.tr-ex').removeClass('show');
     });
   
     
@@ -86,9 +87,6 @@ $(document).ready(function () {
         } // Конец внешнего if
     }); // Конец on 'touchend mouseover' 
   */
-      // --- Убрать транскрипцию кликом на свободное место.
-    $('body:not(.tr)').on('click', function(event){
-        $('.tr').removeClass('show');
-    });
+  
     // ----- конец всплывающих подсказок	-----------------------------------------
 }); // КОНЕЦ $(document).ready(function() {})
