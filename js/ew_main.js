@@ -59,7 +59,7 @@ $(document).ready(function () {
         //$(this).addClass("show");     // Показываем псевдоклассы только у текущего
     });
   */
-    $('span.tr-1').hover(
+    $('span.tr').hover(
         function(event){
         //alert(" Сработало - " + event.type );
         //let that = $(this);
