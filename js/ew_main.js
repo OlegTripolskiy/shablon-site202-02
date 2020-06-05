@@ -34,6 +34,7 @@ $(document).ready(function () {
             addToDictionary.push(word1);
         }
     });
+  /**/
     //	3.4. --- МЕНЯЕМ ПОЛОЖЕНИЕ ::after в зависимости от правого края окна
     $('.tr').hover(function () {
         let el = $(this); // Получаем кликнутый элемент или hover.
@@ -43,9 +44,10 @@ $(document).ready(function () {
         let elemCoord = this.getBoundingClientRect(); // В объекте пишем координаты краев элемента
         let distance = $(".main").width() - elemCoord.left;
         if (distance < 201) {
+//            console.log(" Считаем ");
             el.addClass('tr-left'); //... сдвинаем влево ::after на 200px
         }
-        distance = el.parent().width() - el.position().left; // ? Заново пересчитываем
+        //distance = el.parent().width() - el.position().left; // ? Заново пересчитываем
     });
 
     // 3.6 === Показ транскрипций слов для SENSITIVE и DESKTOP.  ===
