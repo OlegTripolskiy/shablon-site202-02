@@ -60,7 +60,8 @@ $(document).ready(function () {
         $(this).addClass("show");     // Показываем псевдоклассы только у текущего
     });
   */
-    $('.tr').on('mouseover', function(event){
+    $('.tr').hover(
+        function(event){
         //alert(" Сработало - " + event.type );
         $('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
         $(this).addClass("show");     // Показываем псевдоклассы только у текущего
