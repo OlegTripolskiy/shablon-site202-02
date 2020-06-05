@@ -63,7 +63,7 @@ $(document).ready(function () {
         function(event){
         //alert(" Сработало - " + event.type );
         //let that = $(this);
-        $('span.tr-1').not($(this)).removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
+        $('span.tr').not($(this)).removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
         $(this).addClass("show");     // Показываем псевдоклассы только у текущего
     });
   
