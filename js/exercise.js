@@ -18,6 +18,13 @@ $("document").ready(function () {
         helper: fixHelper
     });
 
+    // ---- SORTABLE СПИСКАМИ НОВОЕ -----
+    $('#in-1, #in-2, #in-3').sortable({
+      connectWith: ".sort"
+    }).disableSelection();
+
+
+  
     // --- SORTABLE ДИВАМИ ------------
     $( "#sortable" ).sortable({
         axis: 'y',

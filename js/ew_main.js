@@ -51,7 +51,6 @@ $(document).ready(function () {
     // 3.6 === Показ транскрипций слов для SENSITIVE и DESKTOP.  ===
     
       // --- КОНТРОЛЬ СОБЫТИЙ (DESKTOP или SENSITIVE)
-    // --- ПРОБА обработки событий с помощью switch case  
   /*
     $('.tr').on('touchend', function(event){ // Отслеживаем СРАЗУ ДВА события.
         //alert(" Сработало - " + event.type );

@@ -486,18 +486,9 @@ keyframes move-down {
   margin-top: 5px;
 }
 
-.eng {
-  font-weight: 400;
-  color: #874444;
-}
 
-.rus {
-  font-style: oblique;
-}
 
-.work1 {
-  text-align: center;
-}
+
 /* === SORTABLE =========== */
 /* --- SORTABLE СТРОКИ ТАБЛИЦЫ  -----*/
 /* Упражнение на базе таблицы, тип 1 */
@@ -530,7 +521,53 @@ keyframes move-down {
 }
 
 
-/* --- SORTABLE СПИСКИ  -----*/
+/* =======  SORTABLE СПИСКИ  ================  */
+/* --- НОВОЕ ---------------- */
+.sort {
+  list-style-type: none; /* Убираем стандартное оформление */
+  margin: 0 auto; 
+  padding:0; 
+  width: 90%;
+  border: 1px solid blue;
+  text-align: center;
+}
+
+.title { /* Заголовок группы */
+  color: #874444;
+  font-weight: 600;
+  text-align: center;
+  background-color: #D0D0D0; 
+}
+
+.sort li {
+  display: flex;
+  margin:1px; 
+  padding:3px; 
+  font-size:1.0em; 
+  background-color:#fff;
+  border: 1px solid #888;
+  border-radius: 5px;
+}
+.num {
+  border: 1px solid green;
+  vertical-align: middle; /* не работает */
+}
+.eng { /* Предложения на английском */
+  font-weight: 400;
+  color: #874444;
+}
+.rus { /* Предложения на русском */
+  font-style: oblique;
+}
+
+
+.work1 {
+  text-align: center;
+}
+
+
+
+/* --- Списки со СКРЫТЫМИ ЭЛЕМЕНТАМИ (СТАРОЕ) ---- */
 #sortable {
   list-style-type: none; 
   margin:0; 
@@ -546,12 +583,6 @@ keyframes move-down {
   border-radius: 5px;
 }
 
-.title {
-  color: #874444;
-  font-weight: 600;
-  text-align: center;
-  background-color: #D0D0D0; 
-}
 
 .hidd {
   visibility: hidden;
