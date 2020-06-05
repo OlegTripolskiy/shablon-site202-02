@@ -53,7 +53,12 @@ $(document).ready(function () {
       // --- КОНТРОЛЬ СОБЫТИЙ (DESKTOP или SENSITIVE)
     // --- ПРОБА обработки событий с помощью switch case  
     $('.tr').on('touchend mouseover', function(event){ // Отслеживаем СРАЗУ ДВА события.
-        alert(" Сработало - " + event.type );
+        if (event.type === 'touchend') {
+            alert(" Сработало - " + event.type );
+        else if (event.type === 'mouseover') {
+            alert(" Сработало - " + event.type );
+        }
+        
     });
     
    /* 
