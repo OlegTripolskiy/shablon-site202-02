@@ -54,7 +54,7 @@ $(document).ready(function () {
     // --- ПРОБА обработки событий с помощью switch case  
   /**/
     $('.tr').on('touchend', function(event){ // Отслеживаем СРАЗУ ДВА события.
-        alert(" Сработало - " + event.type );
+        //alert(" Сработало - " + event.type );
         //$('.tr').removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
         //$(this).addClass("show");     // Показываем псевдоклассы только у текущего
     });
