@@ -59,11 +59,11 @@ $(document).ready(function () {
         //$(this).addClass("show");     // Показываем псевдоклассы только у текущего
     });
   */
-    $('span.tr').hover(
+    $('span.tr-ex').hover(
         function(event){
         //alert(" Сработало - " + event.type );
         //let that = $(this);
-        $('span.tr').not($(this)).removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
+        $('span.tr-ex').not($(this)).removeClass('show'); // Удаляем у всех ПОКАЗ псевдоклассов.
         $(this).addClass("show");     // Показываем псевдоклассы только у текущего
     });
   
