@@ -329,7 +329,7 @@ footer { /* --- ПОДВАЛ */
   padding: 5px;/* отступы */
   border-radius: 5px;
 }
-.tr-left:hover::after {left: -150px;}  Если у правого края 
+.tr-left:hover::after {left: -150px;}  /*Если у правого края */
 
 
 
