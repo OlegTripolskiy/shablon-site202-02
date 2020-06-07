@@ -533,7 +533,7 @@ keyframes move-down {
   margin: 0 auto; 
   padding:0; 
   width: 90%;
-  border: 1px solid blue;
+/*  border: 1px solid blue;*/
   text-align: center;
   background-color: #D0D0D0; /* */
 }
