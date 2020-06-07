@@ -4,6 +4,14 @@ $("document").ready(function () {
 
   
     // ======= SORTABLE =========================
+  
+    // ---- SORTABLE СПИСКАМИ НОВОЕ -----
+    $('#in-1, #in-2, #in-3').sortable({
+      connectWith: ".sort",
+      items: "li:not(.title)" // ГРУППИРУЕМЫЕ элементы
+    }).disableSelection();
+  
+  
     // --- SORTABLE - СТРОКАМИ ТАБЛИЦЫ --------
     // Функция, которая не дает строке уменьшаться при переключении.
     let fixHelper = function(e, ui) {
@@ -18,10 +26,6 @@ $("document").ready(function () {
         helper: fixHelper
     });
 
-    // ---- SORTABLE СПИСКАМИ НОВОЕ -----
-    $('#in-1, #in-2, #in-3').sortable({
-      connectWith: ".sort"
-    }).disableSelection();
 
 
   
