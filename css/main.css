@@ -248,6 +248,10 @@ footer { /* --- ПОДВАЛ */
 /* источник http://makoveckij.ru/vsplyivayushhie-podskazki-na-css/#.V2BdSNKLS01 */
 /*  4.1.----  ЗАГРУЖАЕМЫЙ для ТРАНСКРИПЦИИ ШРИФТ -------- */
 @font-face {
+  /* Свободный моно шрифт для показа кода */
+  font-family: JetBrainsMono-Regular.woff2;
+  src: url(../fonts/JetBrainsMono/JetBrainsMono-Regular.woff2);  /*Путь к файлу со шрифтом */
+  src: url(../fonts/JetBrainsMono/JetBrainsMono-Bold.woff2);  /*Путь к файлу со шрифтом */
   /* font-family: font-tr ; Имя шрифта phontm.ttf */
   /*src: url(../fonts/phontm.ttf);  Путь к файлу со шрифтом */
   /*src: url(../fonts/UbuntuMono-R-my-change-3.ttf);   Путь к файлу со шрифтом */
