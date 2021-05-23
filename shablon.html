@@ -269,15 +269,27 @@
             font-weight: 700;
             background-color: #DBE5F1;
             height: 300px;  /* высота */
-            margin-left: 10%;
-            margin-right: 10%;
+            width: 95%;  /* Ширина */
+            margin: 0 auto;  /* Позиционируем блок по ширине по центру  */
             border: solid 1px grey;
             padding-left: 1%;
             overflow: auto;  /* Полоса прокрутки при нехватки ширины */
             /*resize: both;   Можно пользователю менять размеры по вертикали и горизонтали - выходит за пределы сайта */
+            padding-left: 0px; /* Прижимаю заголовк окна влево */
             "
-          >
-<span style="color: brown;">psql-postgres=#</span> SELECT * FROM <span style="color: blue;">prod1</span>;
+          
+          ><div style="
+          /* ><div - вверху вплотную, т.к. весь блок PRE */
+              margin: 0px:
+              padding: 0px;
+              text-align: right;
+              background-color:burlywood;
+              height: 20px;
+              border-bottom: solid 1px grey;
+              "
+            >Заголовк блока для показа кода.
+            </div><span style="color: brown;">psql-postgres=#</span> <!-- У родителя свойство white-space: pre - убираем пробелы -->
+SELECT * FROM <span style="color: blue;">prod1</span>;
  product_num |  name  | price 
 -------------+--------+-------
            1 | String |   9.5
