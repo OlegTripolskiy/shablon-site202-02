@@ -266,7 +266,7 @@
             resize: vertical;  /* Пользователь может изменять размеры блока вертикально */
             font-family: JetBrainsMono, monospace; 
             font-size: 12px; 
-            font-weight: 700;
+            font-weight: normal;
             background-color: #DBE5F1;
             height: 300px;  /* высота */
             width: 95%;  /* Ширина */
@@ -287,17 +287,18 @@
               height: 20px;
               border-bottom: solid 1px grey;
               "
-            >Заголовк блока для показа кода.
-            </div><span style="color: brown;">psql-postgres=#</span> <!-- У родителя свойство white-space: pre - убираем пробелы -->
-SELECT * FROM <span style="color: blue;">prod1</span>;
+            >Заголовк блока. НАДО сделать JS-функцию свор/разворачивани кода white-space: pre-wrap - pre.
+            </div><!-- У родителя свойство white-space: pre - перевод строки делает пробел между строками -->
+<span style="color: brown;">psql-postgres=#</span> SELECT * FROM <span style="color: blue;">prod1</span>  <span style="font: oblique 10px JetBrainsMono; color:cadetblue"> /* Шрифт JetBrainsMono */</span>
  product_num |  name  | price 
 -------------+--------+-------
            1 | String |   9.5
            2 | String |    10
            5 |        |    25
 (3 rows)
-psql-postgres=# \d prod4
-                  Table "public.prod4"
+<div style="font: normal 12px JetBrainsMono;">            
+psql-postgres=# \d prod4 <span style="font: italic 12px JetBrainsMono; color:cadetblue"> /* Шрифт JetBrainsMono */</span>
+                  <span style="color: blue;">Table "public.prod4"
    Column    |  Type   | Collation | Nullable | Default 
 -------------+---------+-----------+----------+---------
  product_num | integer |           |          | 
@@ -305,13 +306,28 @@ psql-postgres=# \d prod4
  price       | numeric |           |          | 
 Check constraints:
     "prod4_price_check" CHECK (price  9::numeric)
-    "prod4_price_check1" CHECK (price  20::numeric)
+    "prod4_price_check1" CHECK (price  20::numeric)</span>
 
 psql-postgres=# INSERT INTO prod2 (id, price, describe) VALUES (4, 40.6, 'Имя не вводилось - в этом атрибуте будет НИЧЕГО);
 INSERT 0 1
+</div>
+<div style="font: normal 12px VictorMono;">            
+psql-postgres=# \d prod4 <span style="font: oblique 12px VictorMono; color:cadetblue"> /* Шрифт VictorMono */</span>
+                  <span style="color: blue;">Table "public.prod4"
+   Column    |  Type   | Collation | Nullable | Default 
+-------------+---------+-----------+----------+---------
+ product_num | integer |           |          | 
+ name        | text    |           |          | 
+ price       | numeric |           |          | 
+Check constraints:
+    "prod4_price_check" CHECK (price  9::numeric)
+    "prod4_price_check1" CHECK (price  20::numeric)</span>
 
+psql-postgres=# INSERT INTO prod2 (id, price, describe) VALUES (4, 40.6, 'Имя не вводилось - в этом атрибуте будет НИЧЕГО);
+INSERT 0 1
+</div>
         </div>
-        
+        <br/>
   
         <h4 class='toc_h'>Синтаксис.</h4>
         <p class="toc_p">

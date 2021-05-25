@@ -247,15 +247,36 @@ footer { /* --- ПОДВАЛ */
 /* 4. === МОДУЛЬ АНГЛИЙСКИХ СЛОВ - ВСПЛЫВАЮЩИЕ ПОДСКАЗКИ ===*/
 /* источник http://makoveckij.ru/vsplyivayushhie-podskazki-na-css/#.V2BdSNKLS01 */
 /*  4.1.----  ЗАГРУЖАЕМЫЙ для ТРАНСКРИПЦИИ ШРИФТ -------- */
+/* ----  Шрифты JetBrainsMono  --- */
 @font-face {
-  /* Свободный моно шрифт для показа кода */
-  font-family: JetBrainsMono-Regular.woff2;
-  src: url(../fonts/JetBrainsMono/JetBrainsMono-Regular.woff2);  /*Путь к файлу со шрифтом */
-  src: url(../fonts/JetBrainsMono/JetBrainsMono-Bold.woff2);  /*Путь к файлу со шрифтом */
-  /* font-family: font-tr ; Имя шрифта phontm.ttf */
-  /*src: url(../fonts/phontm.ttf);  Путь к файлу со шрифтом */
-  /*src: url(../fonts/UbuntuMono-R-my-change-3.ttf);   Путь к файлу со шрифтом */
+  font-family: "JetBrainsMono";
+  src: url(../fonts/JetBrainsMono/JetBrainsMono-Regular.woff2) format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url(../fonts/JetBrainsMono/JetBrainsMono-Italic.woff2) format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+
+/* -- ШРИФТЫ Victor Mono ---*/
+@font-face {
+  font-family: "VictorMono";
+  src: url(../fonts/VictorMono/VictorMono-Regular.woff2) format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "VictorMono";
+  src: url(../fonts/VictorMono/VictorMono-Oblique.woff2) format("woff2");
+  font-weight: normal;
+  font-style: oblique;
+}
+
 /* --- Для транскрипций в */
 .tr-ex {
   position: relative; /* позиционирую РОДИТЕЛЯ для ::after ::befor (они будут потомками) */
