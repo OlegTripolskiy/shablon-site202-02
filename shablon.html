@@ -260,44 +260,22 @@
         <p class="toc_p">
           
           Тут я буду пробовать показ кода SQL и показ вывода результатов запроса к базе данных, используя HTML и  CSS. 
-          <div style="
-            white-space: pre-wrap; /* Текст переносится по словам */
-            /* white-space: pre  Текст не заворачивается */
-            resize: vertical;  /* Пользователь может изменять размеры блока вертикально */
-            font-family: JetBrainsMono, monospace; 
-            font-size: 12px; 
-            font-weight: normal;
-            background-color: #DBE5F1;
-            height: 300px;  /* высота */
-            width: 95%;  /* Ширина */
-            margin: 0 auto;  /* Позиционируем блок по ширине по центру  */
-            border: solid 1px grey;
-            padding-left: 1%;
-            overflow: auto;  /* Полоса прокрутки при нехватки ширины */
-            /*resize: both;   Можно пользователю менять размеры по вертикали и горизонтали - выходит за пределы сайта */
-            padding-left: 0px; /* Прижимаю заголовк окна влево */
-            "
           
-          ><div style="
-          /* ><div - вверху вплотную, т.к. весь блок PRE */
-              margin: 0px:
-              padding: 0px;
-              text-align: right;
-              background-color:burlywood;
-              height: 20px;
-              border-bottom: solid 1px grey;
-              "
-            >Заголовк блока. НАДО сделать JS-функцию свор/разворачивани кода white-space: pre-wrap - pre.
-            </div><!-- У родителя свойство white-space: pre - перевод строки делает пробел между строками -->
-<span style="color: brown;">psql-postgres=#</span> SELECT * FROM <span style="color: blue;">prod1</span>  <span style="font: oblique 10px JetBrainsMono; color:cadetblue"> /* Шрифт JetBrainsMono */</span>
+          <!--  Модуль ПОКАЗА КОДА SQL. Закголовок отдельно т.к. блок кода МОЖНО прокручивать -->
+          <div class='codeSQL-title'>
+            Заголовк блока. НАДО сделать JS-функцию свор/разворачивани кода white-space: pre-wrap - pre.
+          </div>
+          <div class="codeSQL">
+            <div class='codeSQL-pre'>
+<span style="color: brown;">psql-postgres=#</span> SELECT * FROM <span style="color: blue;">prod1</span>
  product_num |  name  | price 
 -------------+--------+-------
            1 | String |   9.5
            2 | String |    10
            5 |        |    25
 (3 rows)
-<div style="font: normal 12px JetBrainsMono;">            
-psql-postgres=# \d prod4 <span style="font: italic 12px JetBrainsMono; color:cadetblue"> /* Шрифт JetBrainsMono */</span>
+         
+psql-postgres=# \d prod4 
                   <span style="color: blue;">Table "public.prod4"
    Column    |  Type   | Collation | Nullable | Default 
 -------------+---------+-----------+----------+---------
@@ -310,9 +288,8 @@ Check constraints:
 
 psql-postgres=# INSERT INTO prod2 (id, price, describe) VALUES (4, 40.6, 'Имя не вводилось - в этом атрибуте будет НИЧЕГО);
 INSERT 0 1
-</div>
-<div style="font: normal 12px VictorMono;">            
-psql-postgres=# \d prod4 <span style="font: oblique 12px VictorMono; color:cadetblue"> /* Шрифт VictorMono */</span>
+
+psql-postgres=# \d prod4 
                   <span style="color: blue;">Table "public.prod4"
    Column    |  Type   | Collation | Nullable | Default 
 -------------+---------+-----------+----------+---------
@@ -325,8 +302,10 @@ Check constraints:
 
 psql-postgres=# INSERT INTO prod2 (id, price, describe) VALUES (4, 40.6, 'Имя не вводилось - в этом атрибуте будет НИЧЕГО);
 INSERT 0 1
-</div>
-        </div>
+
+          </div>
+        </div><!-- КОНЕЦ Модуля кода SQL -->
+        
         <br/>
   
         <h4 class='toc_h'>Синтаксис.</h4>

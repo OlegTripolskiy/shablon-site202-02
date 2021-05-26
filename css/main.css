@@ -254,28 +254,6 @@ footer { /* --- ПОДВАЛ */
   font-weight: normal;
   font-style: normal;
 }
-@font-face {
-  font-family: "JetBrainsMono";
-  src: url(../fonts/JetBrainsMono/JetBrainsMono-Italic.woff2) format("woff2");
-  font-weight: normal;
-  font-style: italic;
-}
-
-
-/* -- ШРИФТЫ Victor Mono ---*/
-@font-face {
-  font-family: "VictorMono";
-  src: url(../fonts/VictorMono/VictorMono-Regular.woff2) format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "VictorMono";
-  src: url(../fonts/VictorMono/VictorMono-Oblique.woff2) format("woff2");
-  font-weight: normal;
-  font-style: oblique;
-}
 
 /* --- Для транскрипций в */
 .tr-ex {
@@ -287,7 +265,7 @@ footer { /* --- ПОДВАЛ */
 /*  4.2 --- ВСПЛЫВАЮЩАЯ ПОДСКАЗКА для ТРАНСКРИПЦИИ и ПЕРЕВОДА ------------------ */
 .tr-ex.show::after {  /* Псевдоэлемент появляется ТОЛЬКО при наведении курсора (или клике для тач устройств) */
   content: attr(data-tr); /* подставляю в content содержимое атрибута */
-  font-family: font-tr; /*подключаю свой шрифт, в котором есть знаки транскрипции */
+  font-family: JetBrainsMono; /*подключаю свой шрифт, в котором есть знаки транскрипции */
   /* Позиционирование псевдоэлемента относительно родителя */
   position: absolute;
   left: 0; /* слева 0 от родителя */
@@ -331,7 +309,7 @@ footer { /* --- ПОДВАЛ */
 /* Добавляем стрелочку внизу блока всплывающей подсказки */
 .tr:hover::after {  /* Псевдоэлемент появляется ТОЛЬКО при наведении курсора (или клике для тач устройств) */
   content: attr(data-tr); /* подставляю в content содержимое атрибута */
-  font-family: font-tr; /*подключаю свой шрифт, в котором есть знаки транскрипции */
+  font: normal 10px JetBrainsMono; /*подключаю свой шрифт, в котором есть знаки транскрипции */
   /* Позиционирование псевдоэлемента относительно родителя */
   position: absolute;
   left: 0; /* слева 0 от родителя */
@@ -347,7 +325,6 @@ footer { /* --- ПОДВАЛ */
   padding: 5px;/* отступы */
   border-radius: 5px;
 }
-
 
 .tr:hover::before { /* !!! должен быть ? after*/
   border: solid;
@@ -398,6 +375,37 @@ footer { /* --- ПОДВАЛ */
 } /* === Конец ОГЛАВЛЕНИЯ СТРАНИЦЫ  */
 
 
+/* 5. ==== МОДУЛЬ ПОКАЗА кода SQL ==========================  */
+.codeSQL {
+  height: 300px;  /* высота */
+  width: 95%;  /* Ширина */
+  margin: 0 auto;  /* Позиционируем блок по ширине по центру  */
+  border: solid 1px grey;
+  background-color: #DBE5F1;
+  /* !!! Работают в комплекте два свойства !!!*/
+  overflow: auto;  /* Полоса прокрутки при нехватки ширины */
+  resize: vertical;  /* Пользователь может изменять размеры блока вертикально */
+  
+  }
+.codeSQL-title {
+  margin: 0 auto;
+  width: 95%;
+  padding: 0px;
+  text-align: right;
+  background-color:burlywood;
+  border: solid 1px grey;
+  border-bottom: 0px;
+}
+.codeSQL-pre {
+  white-space: pre;
+  font-family: JetBrainsMono, monospace; 
+  font-size: 11px; 
+  font-weight: normal;
+
+}
+/* === 5. КОНЕЦ  ======= */
+
+
 /* --- ТРЕНАЖЕР предлогов ----*/
 .trainer {
   position: relative;
@@ -446,7 +454,7 @@ keyframes move-down {
   cursor: pointer;
 }
 
-/* --- DRAGGAB LE ----- */
+/* --- DRAGGABLE ----- */
 #exercise-1 {
   width: 100%;
   min-height: 200px;
@@ -515,8 +523,6 @@ keyframes move-down {
   background-color: azure;
   margin-top: 5px;
 }
-
-
 
 
 /* === SORTABLE =========== */
@@ -589,7 +595,6 @@ keyframes move-down {
 .rus { /* Предложения на русском */
   font-style: oblique;
 }
-
 
 .work1 {
   text-align: center;
