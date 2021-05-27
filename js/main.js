@@ -155,6 +155,21 @@ $("document").ready(function () {
     });
     // == Конец работы с ОГЛАВЛЕНИЕМ СТРАНИЦЫ ======
 
+    // --- УПРАВЛЕНИЕ блоком показ кода SQL ----
+    $(".wrap-change").click(function () {
+        // В HTML коде заголовок блока (class="codeSQL-title") и блок с кодом (class="codeSQL-pre") должны СТРОГО следовать друг за другом.
+        let wr = $(this); // Получаем ссылку на текущий элемент.
+        let wrap = wr.parent().next();  // получаем ссылку на следующий элемент
+        if (wrap.css("white-space") == 'pre') {
+            wrap.removeClass("code-pre").addClass("code-pre-wrap");
+            $(this).text('pre');
+        } else if (wrap.css("white-space") == 'pre-wrap') {
+            wrap.removeClass("code-pre-wrap").addClass("code-pre");
+            $(this).text('pre-wrap');
+        }
+    }); // --- Конец click
+  
+  
 
 }); // -- Конец $("document").ready(function ()
 

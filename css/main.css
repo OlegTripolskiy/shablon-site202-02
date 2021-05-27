@@ -376,18 +376,7 @@ footer { /* --- ПОДВАЛ */
 
 
 /* 5. ==== МОДУЛЬ ПОКАЗА кода SQL ==========================  */
-.codeSQL {
-  height: 300px;  /* высота */
-  width: 95%;  /* Ширина */
-  margin: 0 auto;  /* Позиционируем блок по ширине по центру  */
-  border: solid 1px grey;
-  background-color: #DBE5F1;
-  /* !!! Работают в комплекте два свойства !!!*/
-  overflow: auto;  /* Полоса прокрутки при нехватки ширины */
-  resize: vertical;  /* Пользователь может изменять размеры блока вертикально */
-  
-  }
-.codeSQL-title {
+.codeSQL-title { /* Стили заголовка окна кода */
   margin: 0 auto;
   width: 95%;
   padding: 0px;
@@ -396,12 +385,35 @@ footer { /* --- ПОДВАЛ */
   border: solid 1px grey;
   border-bottom: 0px;
 }
-.codeSQL-pre {
+.wrap-change { /* Стили кнопки смены заворачивания кода*/
+  margin: 3px;
+  color: brown;
+  border: 1px solid grey;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.codeSQL-pre {  /* Стили окна кода */
+  height: 300px;  /* высота */
+  width: 95%;  /* Ширина */
+  margin: 0 auto;  /* Позиционируем блок по ширине по центру  */
+  border: solid 1px grey;
+  background-color: #DBE5F1;
   white-space: pre;
   font-family: JetBrainsMono, monospace; 
   font-size: 11px; 
   font-weight: normal;
+  /* !!! Работают в комплекте два свойства !!!*/
+  overflow: auto;  /* Полоса прокрутки при нехватки ширины */
+  resize: vertical;  /* Пользователь может изменять размеры блока вертикально */
+}
+.code-pre-wrap{white-space: pre-wrap;}
+.code-pre{white-space: pre;}
 
+/* Я ДОБАВИЛ 27.05.2021 */
+.my {
+  font-size: 10pt; 
+  font-family: Consolas, Monaco, monospace;
+/*  color: aqua; НЕЛЬЗЯ т.к. МЕНЯЕТ цвет в других блоках */
 }
 /* === 5. КОНЕЦ  ======= */
 

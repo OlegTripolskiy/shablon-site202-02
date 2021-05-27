@@ -7,6 +7,12 @@
   <link rel="stylesheet" type="text/css" href="css/main.css" /> 
   <link id="link_chcolor" rel="stylesheet" type="text/css" href="css/color_grey.css" /> 
   <title> Shablon 2020 site! на GitHub OlegTripolskiy</title>
+  <!--  ПОДКЛЮЧЕНИЕ БИБЛИОТЕКИ Highligt.JS  -->
+<!--  <link rel="stylesheet" href="css/higligt_dark.css">-->
+  <link rel="stylesheet" href="css/higligt_gml.css">
+  <link rel="preload" href="js/highlight.pack.js" as="script">
+  <script src="js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </head>
 
 <body>
@@ -75,6 +81,78 @@
         </div>
         <!--   Конец ОГЛАВЛЕНИЯ СТРАНИЦЫ     -->
         
+<!-- =========  НАЧАЛО ПАРАГРАФА  Highlight.JS ================================================ -->
+        <h4 class='toc_h'>Highlight.JS .</h4>
+        <p class="toc_p">
+          
+          Тут я буду пробовать показ кода PostgreSQL расцвечивая его Highlight.JS . 
+          
+          <!--   Код PostgreSQL для подсвечивания Highlight.js   class my добавлен мною     -->
+          
+          <pre><code class="language-pgsql hljs my">
+CREATE TABLE prod (
+  product_num integer, 
+  gname text, 
+  price numeric CHECK (price > 0)); -- ограничение-проверка
+</code><code class="language-plaintext hljs my">
+ product_num |  name  | price 
+-------------+--------+-------
+           1 | String |   9.5
+           2 | String |    10
+           5 |        |    25
+(3 rows)
+</code></pre>
+<!--<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>         -->
+          
+<!-- =========  КОНЕЦ ПАРАГРАФА  Highlight.JS ================================================ -->
+        
+<!-- =========  НАЧАЛО ПАРАГРАФА  PostgreSQL ================================================ -->
+        <h4 class='toc_h'>PostgreSQL.</h4>
+        <p class="toc_p">
+          
+          Тут я буду пробовать показ кода SQL и показ вывода результатов запроса к базе данных, используя HTML и  CSS. 
+          
+          <!--  Модуль ПОКАЗА КОДА SQL. Закголовок отдельно тогда блок кода МОЖНО прокручивать
+                Заголовок блока (class="codeSQL-title") и блок с кодом (class="codeSQL-pre") должны СТРОГО следовать друг за другом.
+                иначе не будет работать JS
+          -->
+          <div class='codeSQL-title'>
+            <!--  Для управления сворачиванием кода    -->
+<!--            <span class="code-nowrap">nowrap</span> -->
+            <span class="wrap-change">wrap</span>
+          </div>
+          <div class='codeSQL-pre'>
+<span style="color: brown;">psql-postgres=#</span> SELECT * FROM <span style="color: blue;">prod1</span>
+ product_num |  name  | price 
+-------------+--------+-------
+           1 | String |   9.5
+           2 | String |    10
+           5 |        |    25
+(3 rows)
+         
+psql-postgres=# \d prod4 
+                  <span style="color: blue;">Table "public.prod4"
+   Column    |  Type   | Collation | Nullable | Default 
+-------------+---------+-----------+----------+---------
+ product_num | integer |           |          | 
+ name        | text    |           |          | 
+ price       | numeric |           |          | 
+Check constraints:
+    "prod4_price_check" CHECK (price  9::numeric)
+    "prod4_price_check1" CHECK (price  20::numeric)</span>
+
+psql-postgres=# INSERT INTO prod2 (id, price, describe) VALUES (4, 40.6, 'Имя не вводилось - в этом атрибуте будет НИЧЕГО);
+INSERT 0 1
+
+psql-postgres=# INSERT INTO prod2 (id, price, describe) VALUES (4, 40.6, 'Имя не вводилось - в этом атрибуте будет НИЧЕГО);
+INSERT 0 1
+
+        </div>
+        <!-- КОНЕЦ Модуля кода SQL -->
+        
+<!-- =========  КОНЕЦ ПАРАГРАФА  PostgreSQL ================================================ -->
+        
+<!-- =======  НАЧАЛО ПАРАГРАФА   SORTABLE ==============================  -->
         <h4 class='toc_h' >SORTABLE.</h4>
         
         <!--  ====== SORTABLE  СТРОКАМИ ТАБЛИЦЫ ==========     -->
@@ -128,13 +206,13 @@
         <!--  Приемник 1      -->
         <ul class='sort' id='in-1'>
           <div class="title">Пространство</div>
-<!--          <li class="title">Пространство</li>-->
+          <!--  <li class="title">Пространство</li>-->
         </ul>
         <br>
         
         <!--  Приемник 2      -->
         <ul class='sort' id='in-2'><div class="title">Конкретное место</div>
-<!--          <li></li>-->
+        <!--    <li></li>-->
         </ul>
         <br>
         <!--  ИСТОЧНИК      -->
@@ -183,10 +261,7 @@
           
         </ul>
         <br>
-        
-        
-        
-        
+                
         <!--  SORTABLE  СПИСКАМИ   со СКРЫТЫМИ элементами (СТАРОЕ)  -->
         <ul id="sortable"><div class="title">Пространство / определенное место</div>
           <li class="disabled" >ffff</li>
@@ -214,7 +289,9 @@
 
           <span class="tr" data-tr="">Lorem</span> <span class="tr" data-tr="">image</span>  - это текст-"рыба", часто используемый <span class="tr" data-tr=""> display</span> в печати и вэб-дизайне. <span class="tr" data-tr="">position</span> <span class="tr" data-tr="">repeat</span> <span class="tr" data-tr="">table</span> является стандартной "рыбой" border-color для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя <span class="tr" data-tr="">shorthand</span> <span class="tr" data-tr="">dictionary</span> для распечатки образцов. <span class="tr" data-tr="">dictionary</span> <span class="tr" data-tr="">table</span> не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem <span class="tr" data-tr="">origin</span> в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых Lorem <span class="tr" data-tr="">position</span> - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem <span class="tr" data-tr="">size</span> является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem <span class="tr" data-tr="">attention</span> для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых
         </p>
-        
+<!-- =========  КОНЕЦ ПАРАГРАФА  SORTABLE ================================================ -->
+
+<!-- =========  ГАЧАДЛО ПАРАГРАФА  DRAGGABLE ================================================ -->
         <h4 class='toc_h' >DRAGGABLE.</h4>
         <br>
         <span class="circle">in</span>
@@ -236,7 +313,10 @@
             <span class='prep'>behind</span>
             <span class='prep'>at</span>
           </div>
-        </div>     
+        </div>  
+<!-- =========  КОНЕЦ ПАРАГРАФА  DRAGGABLE ================================================ -->
+
+<!-- =========  НАЧАЛО ПАРАГРАФА  ANIMATE ================================================ -->
         <h4 class='toc_h' >ANIMATE.</h4>
         
         <!-- ТРЕНАЖЕР ПРЕДЛОГОВ  - ПЛАВНОЕ ОПУСКАНИЕ    -->
@@ -247,7 +327,6 @@
             <span class="word">up</span>
             <span class="word">into</span>
           </div>
-          
         </div>
         <p class="toc_p">
           Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых
@@ -256,66 +335,23 @@
         <p class="toc_p">
           Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
         </p>
-        <h4 class='toc_h'>PostgreSQL.</h4>
-        <p class="toc_p">
-          
-          Тут я буду пробовать показ кода SQL и показ вывода результатов запроса к базе данных, используя HTML и  CSS. 
-          
-          <!--  Модуль ПОКАЗА КОДА SQL. Закголовок отдельно т.к. блок кода МОЖНО прокручивать -->
-          <div class='codeSQL-title'>
-            Заголовк блока. НАДО сделать JS-функцию свор/разворачивани кода white-space: pre-wrap - pre.
-          </div>
-          <div class="codeSQL">
-            <div class='codeSQL-pre'>
-<span style="color: brown;">psql-postgres=#</span> SELECT * FROM <span style="color: blue;">prod1</span>
- product_num |  name  | price 
--------------+--------+-------
-           1 | String |   9.5
-           2 | String |    10
-           5 |        |    25
-(3 rows)
-         
-psql-postgres=# \d prod4 
-                  <span style="color: blue;">Table "public.prod4"
-   Column    |  Type   | Collation | Nullable | Default 
--------------+---------+-----------+----------+---------
- product_num | integer |           |          | 
- name        | text    |           |          | 
- price       | numeric |           |          | 
-Check constraints:
-    "prod4_price_check" CHECK (price  9::numeric)
-    "prod4_price_check1" CHECK (price  20::numeric)</span>
+<!-- =========  КОНЕЦ ПАРАГРАФА  ANIMATE ================================================ -->
 
-psql-postgres=# INSERT INTO prod2 (id, price, describe) VALUES (4, 40.6, 'Имя не вводилось - в этом атрибуте будет НИЧЕГО);
-INSERT 0 1
 
-psql-postgres=# \d prod4 
-                  <span style="color: blue;">Table "public.prod4"
-   Column    |  Type   | Collation | Nullable | Default 
--------------+---------+-----------+----------+---------
- product_num | integer |           |          | 
- name        | text    |           |          | 
- price       | numeric |           |          | 
-Check constraints:
-    "prod4_price_check" CHECK (price  9::numeric)
-    "prod4_price_check1" CHECK (price  20::numeric)</span>
 
-psql-postgres=# INSERT INTO prod2 (id, price, describe) VALUES (4, 40.6, 'Имя не вводилось - в этом атрибуте будет НИЧЕГО);
-INSERT 0 1
-
-          </div>
-        </div><!-- КОНЕЦ Модуля кода SQL -->
-        
-        <br/>
-  
+<!-- =========  НАЧАЛО ПАРАГРАФА Синтаксис  ================================================ -->
         <h4 class='toc_h'>Синтаксис.</h4>
         <p class="toc_p">
           Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
         </p>
+<!-- =========  КОНЕЦ ПАРАГРАФА Синтаксис  ================================================ -->
+
+<!-- =========  НАЧАЛО ПАРАГРАФА Поддержка браузерами  ================================================ -->
         <h4 class='toc_h'>Поддержка браузерами.</h4>
         <p class="toc_p">
           Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
         </p>
+<!-- =========  КОНЕЦ ПАРАГРАФА Поддержка браузерами  ================================================ -->
 
         <!-- МЕСТО ДЛЯ ВСТАВКИ СКРИПТА СО СЛОВАРЕМ пришедшим с сервера ПОСЛЕ AJAX. Тэг р с идентификатором нужен, чтобы знать где скрипт будет вставлен  -->
         <p id="for-script">
